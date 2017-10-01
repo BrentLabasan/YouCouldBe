@@ -15,11 +15,7 @@ export default {
     filename: 'bundle.js'
   },
   plugins: [
-    // Eliminate duplicate packages when generating bundle.
-    new webpack.optimize.DedupePlugin(),
 
-    // Minify JS
-    new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
     loaders: [ // loaders teach Webpack how to handle different file types
