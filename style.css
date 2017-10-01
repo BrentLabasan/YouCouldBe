@@ -1,0 +1,65 @@
+#ycb-blocker {
+    color: #FFD77A;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+#ycb-blocker h1 {
+    font-size: 50px;
+    line-height: 75px;
+    font-weight: bold;
+    color: #FFD77A;
+}
+
+#ycb-blocker a {
+    font-size: 100px;
+    line-height: 150px;
+    font-weight: bold;
+    color: yellow;
+}
+
+#ycb-blocker a:hover {
+    /* color: orange; */
+    text-decoration: underline;
+}
+
+#ycb-blocker #alternative {
+    text-transform: uppercase;
+    font-size: 100px;
+    /* height: 100px; */
+    font-weight: bold;
+}
+
+#ycb-blocker .regular {
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    /* color: yellow; */
+    }
+
+#ycb-blocker p {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+#ycb-blocker footer ul li {
+    display:inline;
+    margin: 0 40px 0 0;
+}
+
+#ycb-blocker #ycb-footer button {
+    font-size: 20px;
+    color: #FFD77A;
+    background  : none;
+    cursor  : pointer;
+    border  : none;
+}
+
+#ycb-blocker #ycb-footer button:hover {
+    color: yellow;
+}
+
+#ycb-elYcbParent, #Brent {
+    z-index: 99999999999999999999999999999;
+}

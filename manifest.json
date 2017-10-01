@@ -18,7 +18,8 @@
   "content_scripts": [
     {
       "matches": ["https://*/*", "http://*/*"], // doesn't work for URLs that start with "www"
-      "js": ["extension/extension.js"]
+      "js": ["extension/extension.js"],
+      "css": ["style.css"]      
     }
   ],
 
