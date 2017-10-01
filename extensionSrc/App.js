@@ -10,23 +10,71 @@ const MULTIPLIER = 5;
 class App extends Component {
   constructor() {
     super();
+
+    var d = new Date();
+    let date = "" + d.getFullYear() + d.getMonth() + d.getDate();
+
+    console.log("App.js constructor()");
+
     this.state = {
       currentHostname: window.location.hostname,
+      db: {
+        [window.location.hostname]: {count:0, date: date}
+      },
       view: 'blocker'
     };
+
+  }
+
+  componentDidMount() {
+
+    // debugger;
+
+    chrome.storage.sync.get(URL, (db) => {
+
+      if (!db[URL]) {
+        db[URL] = {};
+      }
+
+      // console.log("date " + date);
+      if (!db[URL][date]) {
+        db[URL][date] = true;
+        db[URL]["count"] = null;
+      }
+
+
+      if (!db[URL]["count"]) {
+        db[URL]["count"] = 0;
+      }
+      db[URL]["count"]++;
+
+      chrome.storage.sync.set(db);
+
+      this.setState({ db: db });
+
+      debugger;
+      console.log("App.js componentDidMount()");
+      console.log(this.state.db);
+
+    });
+
+
   }
 
   render() {
+
+    console.log("App.js render()");
+    
 
     return (
       <MuiThemeProvider>
         <div id="#ycb-container" className="App">
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
-          {this.state.view === 'blocker' && <Blocker currentHostname={this.state.currentHostname}/>}
+          {this.state.view === 'blocker' && <Blocker db={this.state.db} currentHostname={this.state.currentHostname} />}
 
 
 
-          <Timer/>
+          <Timer />
           <RaisedButton label="Default" />
         </div>
       </MuiThemeProvider>
