@@ -11,6 +11,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      currentHostname: window.location.hostname,
       view: 'blocker'
     };
   }
@@ -21,7 +22,7 @@ class App extends Component {
       <MuiThemeProvider>
         <div id="#ycb-container" className="App">
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
-          {this.state.view === 'blocker' && <Blocker/>}
+          {this.state.view === 'blocker' && <Blocker currentHostname={this.state.currentHostname}/>}
 
 
 
