@@ -6,6 +6,7 @@ export default class Game extends React.Component {
     }
 
     render() {
+        alert('wow');
         return (
             <div>
                 wow
