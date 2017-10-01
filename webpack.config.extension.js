@@ -24,6 +24,7 @@ export default {
   module: {
     loaders: [ // loaders teach Webpack how to handle different file types
       {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
+      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
       {test: /\.css$/, loaders: ['style','css']}
     ]
   }

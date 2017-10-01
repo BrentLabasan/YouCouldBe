@@ -69,23 +69,6 @@ export default function () {
         main.id = "main";
         div.appendChild(main);
         $("#main").html("<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet'><h1><span id='root'></span>You Could Be&trade;</h1><span id='alternative'><a href='" + alt1.url + "' target='_blank'>" + alt1.name + "</a></span><br/><span class='regular'>instead of wasting your life on</span><br/><span class='regular'>" + URL + " for the " + getGetOrdinal(timer) + " time today.</span><br/><br/><br/><br/><p>You'll be taken to the site in <span id='elTimer'></span> seconds. In the meantime, why not use that time to do something more productive?</p><br/><br/><br/><footer id='ycb-footer'><ul><li><button>ALTERNATIVES</button></li><li class='btnOptionsView'><button>OPTIONS</button></li><li><button>HELP</button></li><li><button>ABOUT</button></li><li><button>DONATE</button></li></ul></footer>");  
-        
-        class Game extends React.Component {
-            constructor() {
-              super();
-            }
-          
-            render() { 
-              return (
-                <div>
-                    wow
-                </div>
-              );
-            }
-          }
-          
-    
-        ReactDOM.render(<Game />, document.getElementById("root"));
     
         var t = document.createTextNode(timer);       
         // var elTimer = document.createElement("span");
