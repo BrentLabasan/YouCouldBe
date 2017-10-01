@@ -10,7 +10,11 @@
       "postbuild": "babel-node buildScripts/distServer.js",
       "start": "npm-run-all --parallel security-check open:src",
       "open:src": "babel-node buildScripts/srcServer.js",
-      "security-check": "nsp check"
+      "security-check": "nsp check",
+
+      "prebuild-extension": "npm-run-all clean-extension",
+      "clean-extension": "rimraf ./extension && mkdir extension",     
+      "build-extension": "babel-node buildScripts/buildExtension.js"
     },
     "author": "Cory House",
     "license": "MIT",
