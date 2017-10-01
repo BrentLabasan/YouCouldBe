@@ -35,6 +35,21 @@ export default function () {
         chrome.storage.sync.set(db);
     
         // console.log(db);
+
+        const DEFAULT_WHITELIST = [
+            'developer.chrome.com',
+            'www.google.com',
+            'gmail.com',
+            'www.gamefaqs.com',
+            'news.ycombinator.com',
+            'github.com',
+            'stackoverflow.com',
+            'api.jquery.com',
+            'www.material-ui.com',
+            'www.w3schools.com',
+            'developer.mozilla.org',
+            'www.namecheap.com'
+        ];
         
         if (
             DEFAULT_WHITELIST.includes(window.location.hostname) ||

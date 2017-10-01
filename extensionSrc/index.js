@@ -14,6 +14,21 @@ import App from './App';
 
 import numeral from 'numeral';
 
+const DEFAULT_WHITELIST = [
+    'developer.chrome.com',
+    'www.google.com',
+    'gmail.com',
+    'www.gamefaqs.com',
+    'news.ycombinator.com',
+    'github.com',
+    'stackoverflow.com',
+    'api.jquery.com',
+    'www.material-ui.com',
+    'www.w3schools.com',
+    'developer.mozilla.org',
+    'www.namecheap.com'
+  ];
+
 const courseValue = numeral(1000).format('$0,0.00');
 debugger;
 console.log(`I would pay ${courseValue} for this awesome course!`);
@@ -22,9 +37,12 @@ var elYcbParent = document.createElement("div");
 elYcbParent.id = "ycb-elYcbParent";
 document.body.appendChild(elYcbParent); // attaches view-blocker to <body> 
 
-jQuery( document ).ready(function() {
-    // ReactDOM.hydrate(<App />, document.getElementById('ycb-elYcbParent'));
-    ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);    
-    console.log( "ready!" );
-});
 
+
+if (!DEFAULT_WHITELIST.includes(window.location.hostname)) {
+    jQuery( document ).ready(function() {
+        // ReactDOM.hydrate(<App />, document.getElementById('ycb-elYcbParent'));
+        ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);    
+        console.log( "ready!" );
+    });
+}
