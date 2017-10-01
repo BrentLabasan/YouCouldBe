@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+
+  "name": "You Could be",
+  "description": "descr",
+  "version": "0.1",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Click here!"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"], // doesn't work for URLs that start with "www"
+      "js": ["extension/extension.js"],
+      "css": ["style.css"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    "tick.mp3",
+    "tick2.mp3"
+  ]
+}
