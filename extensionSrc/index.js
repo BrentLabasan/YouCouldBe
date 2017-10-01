@@ -26,7 +26,8 @@ const DEFAULT_WHITELIST = [
     'www.material-ui.com',
     'www.w3schools.com',
     'developer.mozilla.org',
-    'www.namecheap.com'
+    'www.namecheap.com',
+    'reactjs.org'
   ];
 
 const courseValue = numeral(1000).format('$0,0.00');
