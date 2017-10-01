@@ -1,3 +1,5 @@
+// Configures Express to serve up our index.html. 5-3
+
 var express = require('express');
 var path = require('path');
 var open = require('open');
