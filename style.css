@@ -60,6 +60,6 @@
     color: yellow;
 }
 
-#ycb-elYcbParent, #Brent {
+#ycb-container {
     z-index: 99999999999999999999999999999;
 }
