@@ -29,7 +29,7 @@ const DEFAULT_WHITELIST = [
     'www.namecheap.com',
     'reactjs.org',
     'reactcheatsheet.com',
-    
+    'genius.com'
   ];
 
 const courseValue = numeral(1000).format('$0,0.00');
