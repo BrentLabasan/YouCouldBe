@@ -15,7 +15,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 #ycb-blocker {
@@ -24,6 +24,8 @@
     text-align: center;
     font-weight: bold;
     font-family: 'Ubuntu Condensed', sans-serif;
+        padding: 20px;
+
 }
 
 #ycb-blocker h1 {
