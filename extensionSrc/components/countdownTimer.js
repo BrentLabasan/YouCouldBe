@@ -4,48 +4,53 @@ const URL = window.location.hostname;
 
 
 export default class CountdownTimer extends React.Component {
-    constructor(props) {
-        super(props);
-        console.log("CountdownTimer");
-        console.log(this.props);
-        this.state = {
-            seconds: props.siteVisitCount
-        };
+  constructor(props) {
+    super(props);
+
+    this.tick = this.tick.bind(this);
+
+    console.log("CountdownTimer");
+    console.log(this.props);
+    this.state = {
+      seconds: props.siteVisitCount
+    };
+  }
+
+  tick() {
+    if (this.state.seconds > 0) {
+      this.setState((prevState) => ({
+        seconds: prevState.seconds - 1
+      }));
     }
+  }
 
-    tick() {
-        this.setState((prevState) => ({
-            seconds: prevState.seconds - 1
-        }));
-    }
-
-    componentDidMount() {
-        console.log("WOW");
-        console.log(this.props.siteVisitCount);
+  componentDidMount() {
+    console.log("WOW");
+    console.log(this.props.siteVisitCount);
 
 
-        chrome.storage.sync.get(URL, (db) => {
+    chrome.storage.sync.get(URL, (db) => {
 
-            this.setState({ seconds: db[URL].count });
+      this.setState({ seconds: db[URL].count });
 
-            debugger;
-            console.log("countdownTimer.js componentDidMount()");
-        });
+      debugger;
+      console.log("countdownTimer.js componentDidMount()");
+    });
 
-        this.interval = setInterval(() => this.tick(), 1000);
-    }
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
 
-    componentWillUnmount() {
-        clearInterval(this.interval);
-    }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
-    render() {
+  render() {
 
-        return (
-            <span id="ycb-countdownTimer">
-                {this.props.siteVisitCount} <br />
-                {this.state.seconds}
-            </span>
-        );
-    }
+    return (
+      <span id="ycb-countdownTimer">
+        {this.props.siteVisitCount} <br />
+        {this.state.seconds}
+      </span>
+    );
+  }
 }
