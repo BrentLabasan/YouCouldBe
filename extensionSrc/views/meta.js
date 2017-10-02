@@ -65,6 +65,11 @@ export default class TabsExampleSwipeable extends React.Component {
                     </div>
                     <div>
                         <h2>DONATE</h2>
+                        <h3>BitCoin Core
+                            <br/>
+                            1EsTtyv6fNPynPooSiFrBFBoSQAxi3GdYu
+                        </h3>
+                        <img src={chrome.extension.getURL('extensionSrc/images/Bitcoin-QR-code.png')} alt="Bitcoin QR code for donating Bitcoin to the developer of You Could Be" />
                     </div>
                 </SwipeableViews>
             </div>
