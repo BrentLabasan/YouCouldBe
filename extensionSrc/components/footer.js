@@ -15,9 +15,9 @@ export default class Footer extends React.Component {
     
   }
 
-  activateMetaView() {
+  activateMetaView(viewMetaSlideIndex) {
     console.log(this.props);
-    this.props.activateMetaView();
+    this.props.activateMetaView(viewMetaSlideIndex);
   }
 
   activateBlockerView() {
@@ -29,11 +29,11 @@ export default class Footer extends React.Component {
 
     let blockerFooter = (
       <ul>
-      <li onClick={this.activateMetaView}>ALTERNATIVES</li>
-      <li onClick={this.activateMetaView}>OPTIONS</li>
-      <li onClick={this.activateMetaView}>HELP</li>
-      <li onClick={this.activateMetaView}>ABOUT</li>
-      <li onClick={this.activateMetaView}>DONATE</li>
+      <li onClick={() => this.activateMetaView(0)}>ALTERNATIVES</li>
+      <li onClick={() => this.activateMetaView(1)}>OPTIONS</li>
+      <li onClick={() => this.activateMetaView(2)}>HELP</li>
+      <li onClick={() => this.activateMetaView(3)}>ABOUT</li>
+      <li onClick={() => this.activateMetaView(4)}>DONATE</li>
     </ul>
     );
 

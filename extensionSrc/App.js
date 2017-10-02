@@ -39,7 +39,8 @@ class App extends Component {
         [window.location.hostname]: { count: 0, date: date }
       },
       view: 'blocker',
-      isYcbContainerVisible: true
+      isYcbContainerVisible: true,
+      viewMetaSlideIndex: 0
     };
 
   }
@@ -81,8 +82,11 @@ class App extends Component {
 
   }
 
-  activateMetaView() {
-    this.setState({ view: 'meta' });
+  activateMetaView(viewMetaSlideIndex) {
+    this.setState({ 
+      view: 'meta',
+      viewMetaSlideIndex: viewMetaSlideIndex
+     });
   }
 
   activateBlockerView() {
@@ -108,7 +112,7 @@ class App extends Component {
         {this.state.isYcbContainerVisible && (<div id="ycb-container" className="App">
           {/* <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" /> */}
           {this.state.view === 'blocker' && <Blocker db={this.state.db} currentHostname={this.state.currentHostname} handleCountdownEnded={this.setYcbContainerVisible} />}
-          {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={this.state.currentHostname} />}
+          {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={this.state.currentHostname} viewMetaSlideIndex={this.state.viewMetaSlideIndex} />}
 
           {/* <Timer /> */}
           {/* <RaisedButton label="Default" /> */}
