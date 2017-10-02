@@ -6,6 +6,7 @@ import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
 
 const URL = window.location.hostname;
+const multiplier = 5;
 
 const style = {
   margin: 12,
@@ -16,7 +17,12 @@ export default class Blocker extends React.Component {
   constructor(props) {
     super(props);
 
+    this.tick = this.tick.bind(this);    
+
     this.handleCountdownEnded = this.handleCountdownEnded.bind(this);    
+    this.state = {
+      timer: this.props.db[URL].count * multiplier
+    }
   }
   
   // https://stackoverflow.com/a/31615643/708355
@@ -29,6 +35,15 @@ export default class Blocker extends React.Component {
   handleCountdownEnded() {
     this.props.handleCountdownEnded();
   }
+
+  tick() {
+    
+        if (this.state.timer > 0) { // timer is still counting down
+          this.setState((prevState) => ({
+            timer: prevState.timer - 1
+          }));
+        }
+      }
 
   render() {
     console.log("this.props.currentHostname " + this.props.currentHostname);
@@ -45,7 +60,7 @@ export default class Blocker extends React.Component {
           <FlatButton label="Primary" primary={true} />
           <IconButton iconClassName="muidocs-icon-custom-github" /> */}
 
-          <button className="btn-proceed">PROCEED &gt;</button>
+          {this.state.timer < 1 && <button onClick={this.handleCountdownEnded} className="btn-proceed">PROCEED &gt;</button>}
       </div>
     );
   }
