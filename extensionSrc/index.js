@@ -29,22 +29,27 @@ const DEFAULT_WHITELIST = [
     'www.namecheap.com',
     'reactjs.org',
     'reactcheatsheet.com',
-    'genius.com'
+    'genius.com',
+    'chrome'
   ];
 
 const courseValue = numeral(1000).format('$0,0.00');
 debugger;
-console.log(`I would pay ${courseValue} for this awesome course!`);
+console.log(`MEOW I would pay ${courseValue} for this awesome course! LOL`);
 
-var div = document.createElement("div");        
-div.id = "ycb-target";
-document.body.appendChild(div);
-
-if (!DEFAULT_WHITELIST.includes(window.location.hostname)) {
-    jQuery( document ).ready(function() {
-        // ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);    
-        ReactDOM.render(<App />, document.getElementById("ycb-target"));    
+jQuery( document ).ready(function() {
+    if (!DEFAULT_WHITELIST.includes(window.location.hostname)) {
         
-        console.log( "ready!" );
-    });
-}
+            var div = document.createElement("div");        
+            div.id = "ycb-target";
+            document.body.appendChild(div);
+        
+
+                // ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);    
+                ReactDOM.render(<App />, document.getElementById("ycb-target"));    
+                
+                console.log( "ready!" );
+        }
+});
+
+
