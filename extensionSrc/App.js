@@ -1,17 +1,116 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
 import Timer from './Timer';
+import Blocker from './views/blocker';
+import Meta from './views/meta';
+
+import Footer from './components/footer';
 const URL = window.location.hostname;
 const MULTIPLIER = 5;
 
+var d = new Date();
+let date = "" + d.getFullYear() + d.getMonth() + d.getDate();
+
 class App extends Component {
+  constructor() {
+    super();
+
+    this.activateMetaView = this.activateMetaView.bind(this);    
+    this.activateBlockerView = this.activateBlockerView.bind(this);    
+    
+    console.log("App.js constructor()");
+
+    // chrome.storage.sync.get([URL, 'count'], (db) => {
+    //   debugger;
+
+    //   this.state = {
+    //     currentHostname: window.location.hostname,
+    //     db: {
+    //       [window.location.hostname]: {count:db[URL].count, date: date}
+    //     },
+    //     view: 'blocker'
+    //   };
+
+    // });
+
+
+    this.state = {
+      currentHostname: window.location.hostname,
+      db: {
+        [window.location.hostname]: {count: 0, date: date}
+      },
+      view: 'blocker'
+    };
+
+  }
+
+  componentDidMount() {
+
+    // debugger;
+
+    chrome.storage.sync.get(URL, (db) => {
+
+      debugger;
+
+      if (!db[URL]) {
+        db[URL] = {};
+      }
+
+      // console.log("date " + date);
+      if (!db[URL][date]) {
+        db[URL][date] = true;
+        db[URL]["count"] = null;
+      }
+
+
+      if (!db[URL]["count"]) {
+        db[URL]["count"] = 0;
+      }
+      db[URL]["count"]++;
+
+      chrome.storage.sync.set(db);
+
+      this.setState({ db: db });
+
+      debugger;
+      console.log("App.js componentDidMount()");
+      console.log(this.state.db);
+
+    });
+
+
+  }
+
+  activateMetaView() {
+    console.log("LMAO1");
+    this.setState({view: 'meta'});
+  }
+
+  activateBlockerView() {
+    console.log("LMAO2");
+    this.setState({view: 'blocker'});
+  }
 
   render() {
 
+    console.log("App.js render()");
+    
+
     return (
-      <div id="Brent" className="App">
-          <h1>To get started, edit <code>src/App.js</code> and save to reload.</h1>
-          <Timer/>
-      </div>
+      <MuiThemeProvider>
+        <div id="ycb-container" className="App">
+          {/* <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" /> */}
+          {this.state.view === 'blocker' && <Blocker db={this.state.db} currentHostname={this.state.currentHostname} />}
+          {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={this.state.currentHostname} />}
+
+          {/* <Timer /> */}
+          {/* <RaisedButton label="Default" /> */}
+
+          <Footer view={this.state.view} activateMetaView={this.activateMetaView} activateBlockerView={this.activateBlockerView} />
+        </div>
+      </MuiThemeProvider>
     );
   }
 }

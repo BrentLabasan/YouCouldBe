@@ -27,22 +27,16 @@ const DEFAULT_WHITELIST = [
     'www.w3schools.com',
     'developer.mozilla.org',
     'www.namecheap.com',
-    'reactjs.org'
+    'reactjs.org',
+    'reactcheatsheet.com'
   ];
 
 const courseValue = numeral(1000).format('$0,0.00');
 debugger;
 console.log(`I would pay ${courseValue} for this awesome course!`);
 
-var elYcbParent = document.createElement("div");        
-elYcbParent.id = "ycb-elYcbParent";
-document.body.appendChild(elYcbParent); // attaches view-blocker to <body> 
-
-
-
 if (!DEFAULT_WHITELIST.includes(window.location.hostname)) {
     jQuery( document ).ready(function() {
-        // ReactDOM.hydrate(<App />, document.getElementById('ycb-elYcbParent'));
         ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);    
         console.log( "ready!" );
     });

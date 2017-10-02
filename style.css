@@ -1,5 +1,17 @@
+#ycb-container {
+    background-color: #171833;
+    font-size: 50px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
 #ycb-blocker {
     color: #FFD77A;
+    background-color: #171833;
     text-align: center;
     font-weight: bold;
     font-family: 'Ubuntu Condensed', sans-serif;
@@ -12,7 +24,27 @@
     color: #FFD77A;
 }
 
-#ycb-blocker a {
+#ycb-meta h2 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #FFD77A;
+}
+
+#ycb-meta h3 {
+    font-size: 35px;
+    font-weight: bold;
+    color: #999999;
+}
+
+
+#ycb-blocker h2 {
+    font-size: 50px;
+    line-height: 75px;
+    font-weight: bold;
+    color: #FFD77A;
+}
+
+#ycb-blocker .txtAlternative {
     font-size: 100px;
     line-height: 150px;
     font-weight: bold;
@@ -43,23 +75,40 @@
     font-weight: normal;
 }
 
-#ycb-blocker footer ul li {
-    display:inline;
-    margin: 0 40px 0 0;
+footer {
+    text-align: center;
+    display: inline-block;
 }
 
-#ycb-blocker #ycb-footer button {
-    font-size: 20px;
-    color: #FFD77A;
-    background  : none;
-    cursor  : pointer;
-    border  : none;
+#ycb-container footer ul {
+    margin: 20px 0 0 0;   
+     color: white;
 }
 
-#ycb-blocker #ycb-footer button:hover {
+#ycb-container #btn-metaFooter-back {
+    font-size: 25px;
+    color: white;
+}
+
+#ycb-container #btn-metaFooter-back:hover {
     color: yellow;
+    cursor: pointer;
 }
 
-#ycb-elYcbParent, #Brent {
+#ycb-container footer li {
+    display: inline;
+    font-size: 25px;
+    margin: 0 20px  0 0;   
+    color: white;
+}
+
+#ycb-container footer li:hover {
+/* text-decoration: underline; */
+    color: yellow;
+    cursor: pointer;
+}
+
+#ycb-container {
+    text-align: center;
     z-index: 99999999999999999999999999999;
 }
