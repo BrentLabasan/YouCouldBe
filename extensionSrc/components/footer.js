@@ -11,14 +11,17 @@ export default class Footer extends React.Component {
   }
 
   render() {
+
+    let btnStyle = {color: 'yellow', fontWeight: '900'};
+
     return (
-      <footer id="ycb-blocker">
+      <footer>
         <ul>
-          <li onClick={() => this.setView('alternatives')}><FlatButton label="ALTERNATIVES" /></li>
-          <li onClick={() => this.setView('options')}><FlatButton label="OPTIONS" /></li>
-          <li onClick={() => this.setView('help')}><FlatButton label="HELP" /></li>
-          <li onClick={() => this.setView('about')}><FlatButton label="ABOUT" /></li>
-          <li onClick={() => this.setView('donate')}><FlatButton label="DONATE" /></li>
+          <li onClick={() => this.setView('alternatives')}><FlatButton label="ALTERNATIVES" style={btnStyle} /></li>
+          <li onClick={() => this.setView('options')}><FlatButton label="OPTIONS" style={btnStyle} /></li>
+          <li onClick={() => this.setView('help')}><FlatButton label="HELP" style={btnStyle} /></li>
+          <li onClick={() => this.setView('about')}><FlatButton label="ABOUT" style={btnStyle} /></li>
+          <li onClick={() => this.setView('donate')}><FlatButton label="DONATE" style={btnStyle} /></li>
         </ul>
       </footer>
     );
