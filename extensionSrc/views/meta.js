@@ -52,6 +52,20 @@ export default class TabsExampleSwipeable extends React.Component {
     this.state = {
       slideIndex: 0,
     };
+
+    this.handleCountdownTickSound = this.handleCountdownTickSound.bind(this);
+
+    // if (!chrome.storage.sync.get('countdownTickSound', (db) => { })) {
+    //   chrome.storage.sync.set({'countdownTickSound': true})
+    // }
+
+    chrome.storage.sync.get('countdownTickSound', (db) => {
+      if (!db.countdownTickSound) {
+        db.countdownTickSound = true;
+      }
+      chrome.storage.sync.set(db);
+    });
+
   }
 
   handleChange = (value) => {
@@ -59,6 +73,12 @@ export default class TabsExampleSwipeable extends React.Component {
       slideIndex: value,
     });
   };
+
+  handleCountdownTickSound() {
+    alert("handleCountdownTickSound()");
+    chrome.storage.sync.set({ 'countdownTickSound': !chrome.storage.sync.get('countdownTickSound') })
+
+  }
 
   render() {
     return (
@@ -93,6 +113,10 @@ export default class TabsExampleSwipeable extends React.Component {
                 label="Ticking sound on countdown"
                 labelStyle={labelStyle2}
                 style={styles2.toggle}
+                toggled={chrome.storage.sync.get('countdownTickSound', (db) => {
+                  return db.countdownTickSound;
+                })}
+                onToggle={this.handleCountdownTickSound}
               />
               <Toggle
                 label="Countdown start sound effect"
