@@ -18,7 +18,8 @@ class App extends Component {
     super();
 
     this.activateMetaView = this.activateMetaView.bind(this);    
-
+    this.activateBlockerView = this.activateBlockerView.bind(this);    
+    
     console.log("App.js constructor()");
 
     this.state = {
@@ -69,8 +70,13 @@ class App extends Component {
   }
 
   activateMetaView() {
-    console.log("LMAO");
+    console.log("LMAO1");
     this.setState({view: 'meta'});
+  }
+
+  activateBlockerView() {
+    console.log("LMAO2");
+    this.setState({view: 'blocker'});
   }
 
   render() {
@@ -88,7 +94,7 @@ class App extends Component {
           {/* <Timer /> */}
           {/* <RaisedButton label="Default" /> */}
 
-          <Footer view={this.state.view} activateMetaView={this.activateMetaView} />
+          <Footer view={this.state.view} activateMetaView={this.activateMetaView} activateBlockerView={this.activateBlockerView} />
         </div>
       </MuiThemeProvider>
     );

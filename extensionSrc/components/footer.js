@@ -6,11 +6,18 @@ export default class Footer extends React.Component {
     super(props);
 
     this.activateMetaView = this.activateMetaView.bind(this);
+    this.activateBlockerView = this.activateBlockerView.bind(this);
+    
   }
 
   activateMetaView() {
     console.log(this.props);
     this.props.activateMetaView();
+  }
+
+  activateBlockerView() {
+    console.log(this.props);
+    this.props.activateBlockerView();
   }
 
   render() {
@@ -26,7 +33,7 @@ export default class Footer extends React.Component {
     );
 
     let metaFooter = (
-      <div>BACK</div>
+      <div onClick={this.activateBlockerView}>BACK</div>
     );
 
     return (
