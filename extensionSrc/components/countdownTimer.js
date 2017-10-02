@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import jQuery from 'jQuery';
 
 const URL = window.location.hostname;
 const multiplier = 5;
@@ -32,6 +33,7 @@ export default class CountdownTimer extends React.Component {
       audio.play();
     } else {
       this.handleCountdownEnded();
+      jQuery("#ycb-target").hide();
     }
   }
 
