@@ -28,16 +28,23 @@ const DEFAULT_WHITELIST = [
     'developer.mozilla.org',
     'www.namecheap.com',
     'reactjs.org',
-    'reactcheatsheet.com'
+    'reactcheatsheet.com',
+    'genius.com'
   ];
 
 const courseValue = numeral(1000).format('$0,0.00');
 debugger;
 console.log(`I would pay ${courseValue} for this awesome course!`);
 
+var div = document.createElement("div");        
+div.id = "ycb-target";
+document.body.appendChild(div);
+
 if (!DEFAULT_WHITELIST.includes(window.location.hostname)) {
     jQuery( document ).ready(function() {
-        ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);    
+        // ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);    
+        ReactDOM.render(<App />, document.getElementById("ycb-target"));    
+        
         console.log( "ready!" );
     });
 }

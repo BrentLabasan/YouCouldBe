@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 
 const URL = window.location.hostname;
-
+const multiplier = 5;
+var audio = new Audio();
 
 export default class CountdownTimer extends React.Component {
   constructor(props) {
     super(props);
 
     this.tick = this.tick.bind(this);
-
+    this.handleCountdownEnded = this.handleCountdownEnded.bind(this);    
+    
     console.log("CountdownTimer");
     console.log(this.props);
     this.state = {
@@ -16,11 +18,20 @@ export default class CountdownTimer extends React.Component {
     };
   }
 
+  handleCountdownEnded() {
+    this.props.handleCountdownEnded();
+  }
+
   tick() {
     if (this.state.seconds > 0) {
       this.setState((prevState) => ({
         seconds: prevState.seconds - 1
       }));
+
+      audio.src = chrome.extension.getURL('tick.mp3');
+      audio.play();
+    } else {
+      this.handleCountdownEnded();
     }
   }
 
@@ -31,7 +42,7 @@ export default class CountdownTimer extends React.Component {
 
     chrome.storage.sync.get(URL, (db) => {
 
-      this.setState({ seconds: db[URL].count });
+      this.setState({ seconds: db[URL].count * multiplier });
 
       debugger;
       console.log("countdownTimer.js componentDidMount()");
@@ -48,7 +59,7 @@ export default class CountdownTimer extends React.Component {
 
     return (
       <span id="ycb-countdownTimer">
-        {this.props.siteVisitCount} <br />
+        {/* {this.props.siteVisitCount} <br /> */}
         {this.state.seconds}
       </span>
     );

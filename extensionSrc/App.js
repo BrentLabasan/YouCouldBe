@@ -19,29 +19,17 @@ class App extends Component {
 
     this.activateMetaView = this.activateMetaView.bind(this);    
     this.activateBlockerView = this.activateBlockerView.bind(this);    
-    
+    this.setYcbContainerVisible = this.setYcbContainerVisible.bind(this);    
+
     console.log("App.js constructor()");
-
-    // chrome.storage.sync.get([URL, 'count'], (db) => {
-    //   debugger;
-
-    //   this.state = {
-    //     currentHostname: window.location.hostname,
-    //     db: {
-    //       [window.location.hostname]: {count:db[URL].count, date: date}
-    //     },
-    //     view: 'blocker'
-    //   };
-
-    // });
-
 
     this.state = {
       currentHostname: window.location.hostname,
       db: {
         [window.location.hostname]: {count: 0, date: date}
       },
-      view: 'blocker'
+      view: 'blocker',
+      isYcbContainerVisible: true
     };
 
   }
@@ -84,32 +72,33 @@ class App extends Component {
   }
 
   activateMetaView() {
-    console.log("LMAO1");
     this.setState({view: 'meta'});
   }
 
   activateBlockerView() {
-    console.log("LMAO2");
     this.setState({view: 'blocker'});
   }
 
+  setYcbContainerVisible() {
+    this.setState({isYcbContainerVisible: false});
+  }
+
   render() {
-
     console.log("App.js render()");
+    console.log(this.state.isYcbContainerVisible);
     
-
     return (
       <MuiThemeProvider>
-        <div id="ycb-container" className="App">
+        { this.state.isYcbContainerVisible && (<div id="ycb-container" className="App">
           {/* <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" /> */}
-          {this.state.view === 'blocker' && <Blocker db={this.state.db} currentHostname={this.state.currentHostname} />}
+          {this.state.view === 'blocker' && <Blocker db={this.state.db} currentHostname={this.state.currentHostname} handleCountdownEnded={this.setYcbContainerVisible} />}
           {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={this.state.currentHostname} />}
 
           {/* <Timer /> */}
           {/* <RaisedButton label="Default" /> */}
 
           <Footer view={this.state.view} activateMetaView={this.activateMetaView} activateBlockerView={this.activateBlockerView} />
-        </div>
+        </div>)}
       </MuiThemeProvider>
     );
   }
