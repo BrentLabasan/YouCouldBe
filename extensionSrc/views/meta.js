@@ -51,21 +51,10 @@ export default class TabsExampleSwipeable extends React.Component {
     super(props);
     this.state = {
       slideIndex: 0,
-
+      tickSoundEnabled: false
     };
 
     this.handleCountdownTickSound = this.handleCountdownTickSound.bind(this);
-
-    // if (!chrome.storage.sync.get('countdownTickSound', (db) => { })) {
-    //   chrome.storage.sync.set({'countdownTickSound': true})
-    // }
-
-    chrome.storage.sync.get('countdownTickSound', (db) => {
-      if (!db.countdownTickSound) {
-        db.countdownTickSound = true;
-      }
-      chrome.storage.sync.set(db);
-    });
 
   }
 
@@ -75,20 +64,15 @@ export default class TabsExampleSwipeable extends React.Component {
     
         chrome.storage.sync.get('tickSoundEnabled', (db) => {
         
-          if (!db.tickSoundEnabled) {
+          if (typeof db.tickSoundEnabled === "undefined") {
             db.tickSoundEnabled = true;
-          }
-    
-          chrome.storage.sync.set(db);
-    
+          } 
+          chrome.storage.sync.set(db); 
           this.setState({ tickSoundEnabled: db.tickSoundEnabled });
     
           console.log("App.js componentDidMount()");
           console.log(this.state.db);
-    
         });
-    
-    
       }
 
   handleChange = (value) => {
@@ -98,8 +82,8 @@ export default class TabsExampleSwipeable extends React.Component {
   };
 
   handleCountdownTickSound() {
-    alert("handleCountdownTickSound()");
-    chrome.storage.sync.set({ 'countdownTickSound': !this.state.tickSoundEnabled })
+    // alert("handleCountdownTickSound()");
+    chrome.storage.sync.set({ 'tickSoundEnabled': !this.state.tickSoundEnabled })
     this.setState({tickSoundEnabled: !this.state.tickSoundEnabled })
   }
 
