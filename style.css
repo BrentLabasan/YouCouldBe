@@ -67,11 +67,24 @@ footer {
     display: inline-block;
 }
 
-#ycb-blocker footer li {
-    display:inline;
-    margin: 0 40px 0 0;
+#ycb-container footer ul {
+    margin: 20px 0 0 0;   
+     color: white;
+}
+
+#ycb-container footer li {
+    display: inline;
+    font-size: 25px;
+    margin: 0 20px  0 0;   
     color: white;
 }
+
+#ycb-container footer li:hover {
+/* text-decoration: underline; */
+    color: yellow;
+    cursor: pointer;
+}
+
 
 #ycb-blocker footer button {
     font-size: 20px;
