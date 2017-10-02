@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 const URL = window.location.hostname;
 
+var audio = new Audio();
 
 export default class CountdownTimer extends React.Component {
   constructor(props) {
@@ -22,10 +23,16 @@ export default class CountdownTimer extends React.Component {
   }
 
   tick() {
+
+
+
     if (this.state.seconds > 0) {
       this.setState((prevState) => ({
         seconds: prevState.seconds - 1
       }));
+
+      audio.src = chrome.extension.getURL('tick.mp3');
+      audio.play();
     } else {
       this.handleCountdownEnded();
     }
