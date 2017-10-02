@@ -66,7 +66,7 @@ export default class Blocker extends React.Component {
           <FlatButton label="Primary" primary={true} />
           <IconButton iconClassName="muidocs-icon-custom-github" /> */}
 
-        {this.state.hasCountdownEnded && <button onClick={this.handleCountdownEnded} className="btn-proceed">PROCEED &gt;</button>}
+        {this.state.hasCountdownEnded && <button onClick={this.handleProceedButtonClick} className="btn-proceed">PROCEED &gt;</button>}
       </div>
     );
   }
