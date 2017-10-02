@@ -50,7 +50,7 @@ export default class TabsExampleSwipeable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      slideIndex: 0,
+      slideIndex: this.props.viewMetaSlideIndex,
       tickSoundEnabled: false
     };
 
