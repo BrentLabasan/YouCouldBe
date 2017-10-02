@@ -22,10 +22,24 @@ class App extends Component {
     
     console.log("App.js constructor()");
 
+    // chrome.storage.sync.get([URL, 'count'], (db) => {
+    //   debugger;
+
+    //   this.state = {
+    //     currentHostname: window.location.hostname,
+    //     db: {
+    //       [window.location.hostname]: {count:db[URL].count, date: date}
+    //     },
+    //     view: 'blocker'
+    //   };
+
+    // });
+
+
     this.state = {
       currentHostname: window.location.hostname,
       db: {
-        [window.location.hostname]: {count:1, date: date}
+        [window.location.hostname]: {count: 0, date: date}
       },
       view: 'blocker'
     };
