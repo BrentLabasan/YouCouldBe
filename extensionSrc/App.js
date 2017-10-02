@@ -88,7 +88,7 @@ class App extends Component {
           {/* <Timer /> */}
           {/* <RaisedButton label="Default" /> */}
 
-          <Footer  activateMetaView={this.activateMetaView} />
+          <Footer view={this.state.view} activateMetaView={this.activateMetaView} />
         </div>
       </MuiThemeProvider>
     );
