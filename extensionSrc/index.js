@@ -18,6 +18,7 @@ const DEFAULT_WHITELIST = [
     'developer.chrome.com',
     'www.google.com',
     'gmail.com',
+    'mail.google.com',
     'www.gamefaqs.com',
     'news.ycombinator.com',
     'github.com',
