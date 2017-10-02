@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 const URL = window.location.hostname;
-
+const multiplier = 5;
 var audio = new Audio();
 
 export default class CountdownTimer extends React.Component {
@@ -23,9 +23,6 @@ export default class CountdownTimer extends React.Component {
   }
 
   tick() {
-
-
-
     if (this.state.seconds > 0) {
       this.setState((prevState) => ({
         seconds: prevState.seconds - 1
@@ -45,7 +42,7 @@ export default class CountdownTimer extends React.Component {
 
     chrome.storage.sync.get(URL, (db) => {
 
-      this.setState({ seconds: db[URL].count });
+      this.setState({ seconds: db[URL].count * multiplier });
 
       debugger;
       console.log("countdownTimer.js componentDidMount()");
