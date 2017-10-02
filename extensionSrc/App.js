@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import Timer from './Timer';
 import Blocker from './views/blocker';
+import Footer from './components/footer';
 const URL = window.location.hostname;
 const MULTIPLIER = 5;
 
@@ -78,6 +79,8 @@ class App extends Component {
 
           {/* <Timer /> */}
           {/* <RaisedButton label="Default" /> */}
+
+          <Footer/>
         </div>
       </MuiThemeProvider>
     );
