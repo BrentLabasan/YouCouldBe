@@ -4,6 +4,10 @@ import jQuery from 'jQuery';
 const URL = window.location.hostname;
 const multiplier = 5;
 var audio = new Audio();
+var audioTimerStarted = new Audio();
+var audioTimerEnded = new Audio();
+
+// var audio, audioTimerStarted, audioTimerEnded = new Audio();
 
 export default class CountdownTimer extends React.Component {
   constructor(props) {
@@ -14,6 +18,10 @@ export default class CountdownTimer extends React.Component {
     
     console.log("CountdownTimer");
     console.log(this.props);
+
+    audioTimerStarted.src = chrome.runtime.getURL('/extensionSrc/audio/bluedistortion/alert-01.wav');
+    audioTimerStarted.play();
+
     this.state = {
       seconds: props.siteVisitCount
     };
@@ -24,14 +32,18 @@ export default class CountdownTimer extends React.Component {
   }
 
   tick() {
-    if (this.state.seconds > 0) {
+
+    if (this.state.seconds > 0) { // timer is still counting down
       this.setState((prevState) => ({
         seconds: prevState.seconds - 1
       }));
 
-      audio.src = chrome.extension.getURL('tick.mp3');
+      audio.src = chrome.runtime.getURL('tick.mp3');
       audio.play();
-    } else {
+    } else { // countdown has ended
+      audioTimerEnded.src = chrome.runtime.getURL('/extensionSrc/audio/bluedistortion/alert-06.wav');
+      audioTimerEnded.play();
+
       this.handleCountdownEnded();
       jQuery("#ycb-target").hide();
     }
