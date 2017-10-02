@@ -21,6 +21,7 @@
     "react": "^16.0.0",
     "react-dev-utils": "^4.1.0",
     "react-dom": "^16.0.0",
+    "react-swipeable-views": "^0.12.8",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {

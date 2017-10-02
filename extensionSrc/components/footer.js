@@ -1,42 +1,62 @@
-import React, { Component } from 'react';
-import FlatButton from 'material-ui/FlatButton';
+import React from 'react';
+import {Tabs, Tab} from 'material-ui/Tabs';
+// From https://github.com/oliviertassinari/react-swipeable-views
+import SwipeableViews from 'react-swipeable-views';
 
-export default class Footer extends React.Component {
+const styles = {
+  headline: {
+    fontSize: 24,
+    paddingTop: 16,
+    marginBottom: 12,
+    fontWeight: 400,
+  },
+  slide: {
+    padding: 10,
+  },
+};
+
+export default class TabsExampleSwipeable extends React.Component {
+
   constructor(props) {
     super(props);
+    this.state = {
+      slideIndex: 0,
+    };
   }
 
-  setView(view) {
-    alert(view);
-  }
+  handleChange = (value) => {
+    this.setState({
+      slideIndex: value,
+    });
+  };
 
   render() {
-
-    let btnStyle = {color: 'yellow', fontWeight: '900'};
-
     return (
-      <footer>
-        <ul>
-          <li onClick={() => this.setView('alternatives')}><FlatButton label="ALTERNATIVES" style={btnStyle} /></li>
-          <li onClick={() => this.setView('options')}><FlatButton label="OPTIONS" style={btnStyle} /></li>
-          <li onClick={() => this.setView('help')}><FlatButton label="HELP" style={btnStyle} /></li>
-          <li onClick={() => this.setView('about')}><FlatButton label="ABOUT" style={btnStyle} /></li>
-          <li onClick={() => this.setView('donate')}><FlatButton label="DONATE" style={btnStyle} /></li>
-        </ul>
-      </footer>
+      <div>
+        <Tabs
+          onChange={this.handleChange}
+          value={this.state.slideIndex}
+        >
+          <Tab label="Tab One" value={0} />
+          <Tab label="Tab Two" value={1} />
+          <Tab label="Tab Three" value={2} />
+        </Tabs>
+        <SwipeableViews
+          index={this.state.slideIndex}
+          onChangeIndex={this.handleChange}
+        >
+          <div>
+            <h2 style={styles.headline}>Tabs with slide effect</h2>
+            Swipe to see the next slide.<br />
+          </div>
+          <div style={styles.slide}>
+            slide n°2
+          </div>
+          <div style={styles.slide}>
+            slide n°3
+          </div>
+        </SwipeableViews>
+      </div>
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
