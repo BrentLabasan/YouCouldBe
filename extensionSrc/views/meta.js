@@ -51,6 +51,7 @@ export default class TabsExampleSwipeable extends React.Component {
     super(props);
     this.state = {
       slideIndex: 0,
+
     };
 
     this.handleCountdownTickSound = this.handleCountdownTickSound.bind(this);
@@ -68,6 +69,28 @@ export default class TabsExampleSwipeable extends React.Component {
 
   }
 
+  componentDidMount() {
+    
+        // debugger;
+    
+        chrome.storage.sync.get('tickSoundEnabled', (db) => {
+        
+          if (!db.tickSoundEnabled) {
+            db.tickSoundEnabled = true;
+          }
+    
+          chrome.storage.sync.set(db);
+    
+          this.setState({ tickSoundEnabled: db.tickSoundEnabled });
+    
+          console.log("App.js componentDidMount()");
+          console.log(this.state.db);
+    
+        });
+    
+    
+      }
+
   handleChange = (value) => {
     this.setState({
       slideIndex: value,
@@ -76,8 +99,8 @@ export default class TabsExampleSwipeable extends React.Component {
 
   handleCountdownTickSound() {
     alert("handleCountdownTickSound()");
-    chrome.storage.sync.set({ 'countdownTickSound': !chrome.storage.sync.get('countdownTickSound') })
-
+    chrome.storage.sync.set({ 'countdownTickSound': !this.state.tickSoundEnabled })
+    this.setState({tickSoundEnabled: !this.tickSoundEnabled })
   }
 
   render() {
@@ -113,9 +136,7 @@ export default class TabsExampleSwipeable extends React.Component {
                 label="Ticking sound on countdown"
                 labelStyle={labelStyle2}
                 style={styles2.toggle}
-                toggled={chrome.storage.sync.get('countdownTickSound', (db) => {
-                  return db.countdownTickSound;
-                })}
+                toggled={this.state.tickSoundEnabled}
                 onToggle={this.handleCountdownTickSound}
               />
               <Toggle
