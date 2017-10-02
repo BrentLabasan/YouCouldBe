@@ -49,6 +49,10 @@ export default class TabsExampleSwipeable extends React.Component {
                 >
                     <div>
                         <h2>ALTERNATIVES</h2>
+                        <h3>Social Networks</h3>
+                        <h3>Pornography</h3>
+                        <h3>Link Aggregators</h3>
+                        <h3>Media</h3>
                     </div>
                     <div>
                         <h2>OPTIONS</h2>
