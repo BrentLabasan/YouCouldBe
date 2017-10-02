@@ -8,7 +8,8 @@ export default class CountdownTimer extends React.Component {
     super(props);
 
     this.tick = this.tick.bind(this);
-
+    this.handleCountdownEnded = this.tick.bind(handleCountdownEnded);
+    
     console.log("CountdownTimer");
     console.log(this.props);
     this.state = {
@@ -16,11 +17,17 @@ export default class CountdownTimer extends React.Component {
     };
   }
 
+  handleCountdownEnded() {
+    this.props.handleCountdownEnded();
+  }
+
   tick() {
     if (this.state.seconds > 0) {
       this.setState((prevState) => ({
         seconds: prevState.seconds - 1
       }));
+    } else {
+      this.handleCountdownEnded();
     }
   }
 
