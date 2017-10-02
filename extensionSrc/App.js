@@ -29,7 +29,7 @@ class App extends Component {
         [window.location.hostname]: {count: 0, date: date}
       },
       view: 'blocker',
-      isYcbContainerVisible: false
+      isYcbContainerVisible: true
     };
 
   }
@@ -80,15 +80,16 @@ class App extends Component {
   }
 
   setYcbContainerVisible() {
-    this.setState({isYcbContainerVisible: true});
+    this.setState({isYcbContainerVisible: false});
   }
 
   render() {
     console.log("App.js render()");
+    console.log(this.state.isYcbContainerVisible);
     
     return (
       <MuiThemeProvider>
-        { (<div id="ycb-container" className="App">
+        { this.state.isYcbContainerVisible && (<div id="ycb-container" className="App">
           {/* <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" /> */}
           {this.state.view === 'blocker' && <Blocker db={this.state.db} currentHostname={this.state.currentHostname} handleCountdownEnded={this.setYcbContainerVisible} />}
           {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={this.state.currentHostname} />}
