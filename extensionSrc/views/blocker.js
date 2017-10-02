@@ -7,7 +7,7 @@ export default class Blocker extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleCountdownEnded = this.tick.bind(handleCountdownEnded);    
+    this.handleCountdownEnded = this.handleCountdownEnded.bind(this);    
   }
   
   // https://stackoverflow.com/a/31615643/708355

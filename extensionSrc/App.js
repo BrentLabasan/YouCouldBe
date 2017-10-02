@@ -88,7 +88,7 @@ class App extends Component {
     
     return (
       <MuiThemeProvider>
-        <div id="ycb-container" className="App">
+        { (<div id="ycb-container" className="App">
           {/* <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" /> */}
           {this.state.view === 'blocker' && <Blocker db={this.state.db} currentHostname={this.state.currentHostname} handleCountdownEnded={this.setYcbContainerVisible} />}
           {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={this.state.currentHostname} />}
@@ -97,7 +97,7 @@ class App extends Component {
           {/* <RaisedButton label="Default" /> */}
 
           <Footer view={this.state.view} activateMetaView={this.activateMetaView} activateBlockerView={this.activateBlockerView} />
-        </div>
+        </div>)}
       </MuiThemeProvider>
     );
   }
