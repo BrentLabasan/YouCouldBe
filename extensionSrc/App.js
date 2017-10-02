@@ -70,14 +70,14 @@ class App extends Component {
 
     return (
       <MuiThemeProvider>
-        <div id="#ycb-container" className="App">
+        <div id="ycb-container" className="App">
           {/* <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" /> */}
           {this.state.view === 'blocker' && <Blocker db={this.state.db} currentHostname={this.state.currentHostname} />}
 
 
 
-          <Timer />
-          <RaisedButton label="Default" />
+          {/* <Timer /> */}
+          {/* <RaisedButton label="Default" /> */}
         </div>
       </MuiThemeProvider>
     );
