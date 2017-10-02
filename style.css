@@ -24,6 +24,13 @@
     color: #FFD77A;
 }
 
+#ycb-meta h2 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #FFD77A;
+}
+
+
 #ycb-blocker h2 {
     font-size: 50px;
     line-height: 75px;
@@ -72,6 +79,16 @@ footer {
      color: white;
 }
 
+#ycb-container #btn-metaFooter-back {
+    font-size: 25px;
+    color: white;
+}
+
+#ycb-container #btn-metaFooter-back:hover {
+    color: yellow;
+    cursor: pointer;
+}
+
 #ycb-container footer li {
     display: inline;
     font-size: 25px;
@@ -83,19 +100,6 @@ footer {
 /* text-decoration: underline; */
     color: yellow;
     cursor: pointer;
-}
-
-
-#ycb-blocker footer button {
-    font-size: 20px;
-    color: #FFD77A;
-    /* background  : none;
-    cursor  : pointer;
-    border  : none; */
-}
-
-#ycb-blocker footer button:hover {
-    color: yellow;
 }
 
 #ycb-container {

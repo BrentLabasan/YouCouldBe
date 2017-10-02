@@ -1,4 +1,9 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
+
+const style = {
+  margin: 12,
+};
 
 export default class Footer extends React.Component {
 
@@ -33,7 +38,8 @@ export default class Footer extends React.Component {
     );
 
     let metaFooter = (
-      <div onClick={this.activateBlockerView}>BACK</div>
+      <div id="btn-metaFooter-back" onClick={this.activateBlockerView}>&lt; BACK</div>
+      // <RaisedButton label="BACK" primary={true} style={style} id="btn-metaFooter-back" onClick={this.activateBlockerView}/>
     );
 
     return (
