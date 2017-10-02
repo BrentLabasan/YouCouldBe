@@ -100,7 +100,7 @@ export default class TabsExampleSwipeable extends React.Component {
   handleCountdownTickSound() {
     alert("handleCountdownTickSound()");
     chrome.storage.sync.set({ 'countdownTickSound': !this.state.tickSoundEnabled })
-    this.setState({tickSoundEnabled: !this.tickSoundEnabled })
+    this.setState({tickSoundEnabled: !this.state.tickSoundEnabled })
   }
 
   render() {
