@@ -24,6 +24,8 @@
   ],
 
   "web_accessible_resources": [
-    "tick.mp3"
+    "tick.mp3",
+    "/extensionSrc/audio/*",
+    "/extensionSrc/images/*"
   ]
 }

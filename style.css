@@ -47,6 +47,20 @@
     color: #999999;
 }
 
+#ycb-meta h4 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #999999;
+}
+
+#ycb-meta #view-meta-options label {
+    color: white;
+    /* width:  */
+}
+
+#ycb-meta #view-meta-options #view-meta-options-container {
+    width: 768px;
+}
 
 #ycb-blocker h2 {
     font-size: 50px;
