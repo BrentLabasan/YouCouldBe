@@ -4,6 +4,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import Timer from './Timer';
 import Blocker from './views/blocker';
+import Meta from './views/meta';
+
 import Footer from './components/footer';
 const URL = window.location.hostname;
 const MULTIPLIER = 5;
@@ -14,6 +16,8 @@ let date = "" + d.getFullYear() + d.getMonth() + d.getDate();
 class App extends Component {
   constructor() {
     super();
+
+    this.activateMetaView = this.activateMetaView.bind(this);    
 
     console.log("App.js constructor()");
 
@@ -64,6 +68,11 @@ class App extends Component {
 
   }
 
+  activateMetaView() {
+    console.log("LMAO");
+    this.setState({view: 'meta'});
+  }
+
   render() {
 
     console.log("App.js render()");
@@ -74,13 +83,12 @@ class App extends Component {
         <div id="ycb-container" className="App">
           {/* <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" /> */}
           {this.state.view === 'blocker' && <Blocker db={this.state.db} currentHostname={this.state.currentHostname} />}
-
-
+          {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={this.state.currentHostname} />}
 
           {/* <Timer /> */}
           {/* <RaisedButton label="Default" /> */}
 
-          <Footer/>
+          <Footer  activateMetaView={this.activateMetaView} />
         </div>
       </MuiThemeProvider>
     );
