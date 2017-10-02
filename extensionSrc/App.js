@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import jQuery from 'jQuery';
 import Timer from './Timer';
 import Blocker from './views/blocker';
 import Meta from './views/meta';
@@ -90,6 +91,7 @@ class App extends Component {
 
   setYcbContainerVisible() {
     this.setState({ isYcbContainerVisible: false });
+    jQuery("#ycb-target").hide();
   }
 
   render() {

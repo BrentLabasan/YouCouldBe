@@ -15,7 +15,6 @@ export default class CountdownTimer extends React.Component {
 
     this.tick = this.tick.bind(this);
     this.handleCountdownEnded = this.handleCountdownEnded.bind(this);    
-    this.handleProceedButtonClick = this.handleProceedButtonClick.bind(this);    
     
     console.log("CountdownTimer");
     console.log(this.props);
@@ -33,11 +32,6 @@ export default class CountdownTimer extends React.Component {
     this.props.handleCountdownEnded();
   }
 
-  handleProceedButtonClick() {
-      this.handleCountdownEnded();
-      jQuery("#ycb-target").hide();
-  }
-
   tick() {
 
     if (this.state.seconds > 0) { // timer is still counting down
@@ -53,9 +47,7 @@ export default class CountdownTimer extends React.Component {
         audioTimerEnded.play();
         this.setState({isTimerRunning: false});
       }
-
-
-      // this.handleCountdownEnded();
+      this.handleCountdownEnded();
       // jQuery("#ycb-target").hide();
     }
   }
@@ -64,12 +56,8 @@ export default class CountdownTimer extends React.Component {
     console.log("WOW");
     console.log(this.props.siteVisitCount);
 
-
     chrome.storage.sync.get(URL, (db) => {
-
       this.setState({ seconds: db[URL].count * multiplier });
-
-      debugger;
       console.log("countdownTimer.js componentDidMount()");
     });
 
