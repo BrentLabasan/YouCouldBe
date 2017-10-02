@@ -55,7 +55,7 @@ export default class CountdownTimer extends React.Component {
 
     return (
       <span id="ycb-countdownTimer">
-        {this.props.siteVisitCount} <br />
+        {/* {this.props.siteVisitCount} <br /> */}
         {this.state.seconds}
       </span>
     );
