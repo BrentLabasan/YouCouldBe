@@ -56,12 +56,14 @@ export default class TabsExampleSwipeable extends React.Component {
                     </div>
                     <div>
                         <h2>OPTIONS</h2>
+                        <h3></h3>
                     </div>
                     <div>
                         <h2>HELP</h2>
                     </div>
                     <div>
                         <h2>ABOUT</h2>
+                        <h3>You Could Be is a Chrome extension by Brent Labasan.</h3>
                     </div>
                     <div>
                         <h2>DONATE</h2>
