@@ -7,19 +7,19 @@ import Blocker from './views/blocker';
 const URL = window.location.hostname;
 const MULTIPLIER = 5;
 
+var d = new Date();
+let date = "" + d.getFullYear() + d.getMonth() + d.getDate();
+
 class App extends Component {
   constructor() {
     super();
-
-    var d = new Date();
-    let date = "" + d.getFullYear() + d.getMonth() + d.getDate();
 
     console.log("App.js constructor()");
 
     this.state = {
       currentHostname: window.location.hostname,
       db: {
-        [window.location.hostname]: {count:0, date: date}
+        [window.location.hostname]: {count:1, date: date}
       },
       view: 'blocker'
     };
@@ -31,6 +31,8 @@ class App extends Component {
     // debugger;
 
     chrome.storage.sync.get(URL, (db) => {
+
+      debugger;
 
       if (!db[URL]) {
         db[URL] = {};
@@ -69,7 +71,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div id="#ycb-container" className="App">
-          <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+          {/* <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" /> */}
           {this.state.view === 'blocker' && <Blocker db={this.state.db} currentHostname={this.state.currentHostname} />}
 
 

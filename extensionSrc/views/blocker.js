@@ -21,7 +21,7 @@ export default class Blocker extends React.Component {
       <div id="ycb-blocker">
           <h1>You Could Be&trade;</h1>
           <span className="txtAlternative">CHECKING YOUR EMAIL</span>
-          <h2>instead of wasting your life on {this.props.currentHostname} for the {this.getGetOrdinal(this.props.db.count)} time today.</h2>
+          <h2>instead of wasting your life on {this.props.currentHostname} for the {this.getGetOrdinal(this.props.db[this.props.currentHostname].count)} time today.</h2>
       </div>
     );
   }
