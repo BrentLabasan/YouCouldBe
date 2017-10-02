@@ -24,7 +24,8 @@ export default class CountdownTimer extends React.Component {
 
     this.state = {
       seconds: props.siteVisitCount,
-      isTimerRunning: true
+      isTimerRunning: true,
+      tickSoundEnabled: false
     };
   }
 
@@ -38,9 +39,11 @@ export default class CountdownTimer extends React.Component {
       this.setState((prevState) => ({
         seconds: prevState.seconds - 1
       }));
+      if (this.state.tickSoundEnabled) {
+        audio.src = chrome.runtime.getURL('tick.mp3');
+        audio.play();
+      }
 
-      audio.src = chrome.runtime.getURL('tick.mp3');
-      audio.play();
     } else { // countdown has ended
       if (this.state.isTimerRunning) {
         audioTimerEnded.src = chrome.runtime.getURL('/extensionSrc/audio/bluedistortion/alert-06.wav');
@@ -56,8 +59,11 @@ export default class CountdownTimer extends React.Component {
     console.log("WOW");
     console.log(this.props.siteVisitCount);
 
-    chrome.storage.sync.get(URL, (db) => {
-      this.setState({ seconds: db[URL].count * multiplier });
+    chrome.storage.sync.get([URL, 'tickSoundEnabled'], (db) => {
+      this.setState({ 
+        seconds: db[URL].count * multiplier ,
+        tickSoundEnabled: db.tickSoundEnabled
+      });
       console.log("countdownTimer.js componentDidMount()");
     });
 
