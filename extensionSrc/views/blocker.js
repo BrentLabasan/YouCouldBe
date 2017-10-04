@@ -60,13 +60,13 @@ export default class Blocker extends React.Component {
 
     chrome.storage.sync.get([URL, 'tickSoundEnabled'], (db) => {
       this.setState({ 
-        seconds: db[URL].count * multiplier ,
+        timer: db[URL].count * multiplier ,
         tickSoundEnabled: db.tickSoundEnabled
       });
       console.log("countdownTimer.js componentDidMount()");
     });
 
-    // this.interval = setInterval(() => this.tick(), 1000);
+    this.interval = setInterval(() => this.tick(), 1000);
   }
 
   render() {
