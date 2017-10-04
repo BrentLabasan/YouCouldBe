@@ -14,7 +14,7 @@ export default class CountdownTimer extends React.Component {
     super(props);
 
     this.tick = this.tick.bind(this);
-    this.handleCountdownEnded = this.handleCountdownEnded.bind(this);    
+    // this.handleCountdownEnded = this.handleCountdownEnded.bind(this);    
     
     console.log("CountdownTimer");
     console.log(this.props);
@@ -29,9 +29,9 @@ export default class CountdownTimer extends React.Component {
     };
   }
 
-  handleCountdownEnded() {
-    this.props.handleCountdownEnded();
-  }
+  // handleCountdownEnded() {
+  //   this.props.handleCountdownEnded();
+  // }
 
   tick() {
 
@@ -50,7 +50,7 @@ export default class CountdownTimer extends React.Component {
         audioTimerEnded.play();
         this.setState({isTimerRunning: false});
       }
-      this.handleCountdownEnded();
+      // this.handleCountdownEnded();
       // jQuery("#ycb-target").hide();
     }
   }

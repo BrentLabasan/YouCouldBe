@@ -51,7 +51,7 @@ class App extends Component {
 
     chrome.storage.sync.get(URL, (db) => {
 
-      debugger;
+      // debugger;
 
       if (!db[URL]) {
         db[URL] = {};
@@ -73,7 +73,7 @@ class App extends Component {
 
       this.setState({ db: db });
 
-      debugger;
+      // debugger;
       console.log("App.js componentDidMount()");
       console.log(this.state.db);
 
