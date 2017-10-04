@@ -6,6 +6,7 @@ export default {
   devtool: 'source-map',
   noInfo: false,
   entry: [
+    'react-devtools',
     path.resolve(__dirname, 'extensionSrc/index')
   ],
   target: 'web',
