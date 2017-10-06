@@ -1,12 +1,12 @@
 download node.js
 
-in main directory
+in directory you downloaded repository to
 npm install
-
 npm run build-extension
+
 load the extension into Chrome by going to chrome://extensions/ > Load unpacked extension > select folder where repository was downloaded to
 
-you should see the extensin activate when you go to any page that's not whitelisted in index.js
+you should see the extension activate when you go to any page that's not whitelisted in index.js
 
 e.g.
 
@@ -34,3 +34,10 @@ const DEFAULT_WHITELIST = [
     'www.dropbox.com'
   ];
 
+
+
+Every time you make a change to the repository, you need to follow these instructions
+npm run build-extension
+Reload the chrome://extensions/ page, or just click the Reload button next to the extension.
+
+npm run build-extension typically takes 8-12 seconds.
