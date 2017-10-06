@@ -19,6 +19,8 @@ const DEFAULT_WHITELIST = [
     'www.google.com',
     'gmail.com',
     'mail.google.com',
+    'docs.google.com',
+    'play.google.com',
     'www.gamefaqs.com',
     'news.ycombinator.com',
     'github.com',
@@ -31,7 +33,9 @@ const DEFAULT_WHITELIST = [
     'reactjs.org',
     'reactcheatsheet.com',
     'genius.com',
-    'chrome'
+    'chrome',
+    'clients.mindbodyonline.com',
+    'www.dropbox.com'
   ];
 
 const courseValue = numeral(1000).format('$0,0.00');

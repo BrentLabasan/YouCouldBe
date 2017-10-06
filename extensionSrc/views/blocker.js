@@ -25,6 +25,8 @@ export default class Blocker extends React.Component {
       timer: this.props.db[URL].count * multiplier,
       hasCountdownEnded: false
     }
+
+    
   }
 
   // https://stackoverflow.com/a/31615643/708355
@@ -50,7 +52,7 @@ export default class Blocker extends React.Component {
       }));
     } else {
       this.setState({hasCountdownEnded: true});
-      
+      clearInterval(interval);
     }
   }
 
@@ -66,8 +68,16 @@ export default class Blocker extends React.Component {
       console.log("countdownTimer.js componentDidMount()");
     });
 
-    this.interval = setInterval(() => this.tick(), 1000);
+    var intervalId = setInterval(this.tick, 1000);
+    // store intervalId in the state so it can be accessed later:
+    this.setState({intervalId: intervalId});
+
   }
+
+  componentWillUnmount() {
+    // use intervalId from the state to clear the interval
+    clearInterval(this.state.intervalId);
+ }
 
   render() {
     // console.log("this.props.currentHostname " + this.props.currentHostname);
