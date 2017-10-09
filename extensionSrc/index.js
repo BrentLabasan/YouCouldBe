@@ -48,12 +48,50 @@ const DEFAULT_WHITELIST = [
     'www.typescriptlang.org'
   ];
 
+  const DEFAULT_WHITELIST2 = [
+    {url: 'developer.chrome.com'},
+    {url: 'www.google.com'},
+    {url: 'gmail.com'},
+    {url: 'mail.google.com'},
+    {url: 'docs.google.com'},
+    {url: 'play.google.com'},
+    {url: 'www.gamefaqs.com'},
+    {url: 'news.ycombinator.com'},
+    {url: 'github.com'},
+    {url: 'stackoverflow.com'},
+    {url: 'api.jquery.com'},
+    {url: 'www.material-ui.com'},
+    {url: 'www.w3schools.com'},
+    {url: 'developer.mozilla.org'},
+    {url: 'www.namecheap.com'},
+    {url: 'reactjs.org',
+    {url: 'reactcheatsheet.com'},
+    {url: 'genius.com'},
+    {url: 'chrome'},
+    {url: 'clients.mindbodyonline.com'},
+    {url: 'www.dropbox.com'},
+    {url: 'www.messenger.com'},
+
+    {url: 'www.cybercoders.com'},
+    {url: 'indeed.com'},
+    {url: 'jobs.stackoverflow.com'},
+
+    {url: 'www.hiphopdx.com'},
+    {url: 'www.complex.com'},
+
+    {url: 'www.typescriptlang.org'}
+  ];
+
+  const DEFAULT_BLACKLIST = [
+    {url: 'www.facebook.com', weight: 5}
+  ];
+
 const courseValue = numeral(1000).format('$0,0.00');
 // debugger;
-console.log(`MEOW I would pay ${courseValue} for this awesome course! LOL`);
+console.log(`MEOW I would pay ${url: courseValue} for this awesome course! LOL`);
 
-jQuery( document ).ready(function() {
-    if (!DEFAULT_WHITELIST.includes(window.location.hostname)) {
+jQuery( document ).ready(function() {url: 
+    if (!DEFAULT_WHITELIST.includes(window.location.hostname)) {url: 
         
             var div = document.createElement("div");        
             div.id = "ycb-target";
