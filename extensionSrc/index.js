@@ -35,7 +35,17 @@ const DEFAULT_WHITELIST = [
     'genius.com',
     'chrome',
     'clients.mindbodyonline.com',
-    'www.dropbox.com'
+    'www.dropbox.com',
+    'www.messenger.com',
+
+    'www.cybercoders.com',
+    'indeed.com',
+    'jobs.stackoverflow.com',
+
+    'www.hiphopdx.com',
+    'www.complex.com',
+
+    'www.typescriptlang.org'
   ];
 
 const courseValue = numeral(1000).format('$0,0.00');

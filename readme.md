@@ -32,6 +32,16 @@ const DEFAULT_WHITELIST = [
     'chrome',
     'clients.mindbodyonline.com',
     'www.dropbox.com'
+    'www.messenger.com',
+
+    'www.cybercoders.com',
+    'indeed.com',
+    'jobs.stackoverflow.com',
+
+    'www.hiphopdx.com',
+    'www.complex.com',
+
+    'www.typescriptlang.org'
   ];
 
 

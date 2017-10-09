@@ -5,6 +5,8 @@
     position: absolute;
     top: 0;
     left: 0;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    
 }
 
 #ycb-container {
@@ -23,7 +25,6 @@
     background-color: #171833;
     text-align: center;
     font-weight: bold;
-    font-family: 'Ubuntu Condensed', sans-serif;
     padding: 20px;
 }
 
