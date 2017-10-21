@@ -20,6 +20,7 @@ const DEFAULT_WHITELIST = [
     'gmail.com',
     'mail.google.com',
     'docs.google.com',
+    'www.calendar.google.com',
     'play.google.com',
     'www.gamefaqs.com',
     'news.ycombinator.com',
@@ -37,15 +38,28 @@ const DEFAULT_WHITELIST = [
     'clients.mindbodyonline.com',
     'www.dropbox.com',
     'www.messenger.com',
+    'www.wikipedia.org',
 
+    'www.linkedin.com',
     'www.cybercoders.com',
     'indeed.com',
     'jobs.stackoverflow.com',
 
     'www.hiphopdx.com',
     'www.complex.com',
+    'www.xxlmag.com',
 
-    'www.typescriptlang.org'
+    'www.typescriptlang.org',
+
+    'www.amazon.com',
+    'www.newegg.com',
+
+    'www.nirvanahq.com',
+    'focus.nirvanahq.com',
+
+    'trello.com',
+
+    'www.barnesandnoble.com'
   ];
 
   const DEFAULT_WHITELIST2 = [
@@ -64,7 +78,7 @@ const DEFAULT_WHITELIST = [
     {url: 'www.w3schools.com'},
     {url: 'developer.mozilla.org'},
     {url: 'www.namecheap.com'},
-    {url: 'reactjs.org',
+    {url: 'reactjs.org'},
     {url: 'reactcheatsheet.com'},
     {url: 'genius.com'},
     {url: 'chrome'},
@@ -83,24 +97,28 @@ const DEFAULT_WHITELIST = [
   ];
 
   const DEFAULT_BLACKLIST = [
-    {url: 'www.facebook.com', weight: 5}
+    {url: 'www.facebook.com', weight: 5},
+    {url: 'www.reddit.com', weight: 5},
+    {url: 'www.instagram.com', weight: 5},
+    {url: 'www.youtube.com.com', weight: 3},
+    {url: 'www.dailymotion.com', weight: 3}
   ];
 
 const courseValue = numeral(1000).format('$0,0.00');
+console.log(`MEOW I would pay ${courseValue} for this awesome course! LOL`);
 // debugger;
-console.log(`MEOW I would pay ${url: courseValue} for this awesome course! LOL`);
 
-jQuery( document ).ready(function() {url: 
-    if (!DEFAULT_WHITELIST.includes(window.location.hostname)) {url: 
-        
-            var div = document.createElement("div");        
+jQuery( document ).ready(function() {
+    if (!DEFAULT_WHITELIST.includes(window.location.hostname)) {
+
+            var div = document.createElement("div");
             div.id = "ycb-target";
             document.body.appendChild(div);
-        
 
-                // ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);    
-                ReactDOM.render(<App />, document.getElementById("ycb-target"));    
-                
+
+                // ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);
+                ReactDOM.render(<App />, document.getElementById("ycb-target"));
+
                 console.log( "ready!" );
         }
 });
