@@ -44,6 +44,9 @@ const DEFAULT_WHITELIST = [
     'www.cybercoders.com',
     'indeed.com',
     'jobs.stackoverflow.com',
+    'www.pluralsight.com',
+    'app.pluralsight.com',
+    'outlook.live.com',
 
     'www.hiphopdx.com',
     'www.complex.com',
@@ -59,41 +62,11 @@ const DEFAULT_WHITELIST = [
 
     'trello.com',
 
-    'www.barnesandnoble.com'
-  ];
+    'www.barnesandnoble.com',
 
-  const DEFAULT_WHITELIST2 = [
-    {url: 'developer.chrome.com'},
-    {url: 'www.google.com'},
-    {url: 'gmail.com'},
-    {url: 'mail.google.com'},
-    {url: 'docs.google.com'},
-    {url: 'play.google.com'},
-    {url: 'www.gamefaqs.com'},
-    {url: 'news.ycombinator.com'},
-    {url: 'github.com'},
-    {url: 'stackoverflow.com'},
-    {url: 'api.jquery.com'},
-    {url: 'www.material-ui.com'},
-    {url: 'www.w3schools.com'},
-    {url: 'developer.mozilla.org'},
-    {url: 'www.namecheap.com'},
-    {url: 'reactjs.org'},
-    {url: 'reactcheatsheet.com'},
-    {url: 'genius.com'},
-    {url: 'chrome'},
-    {url: 'clients.mindbodyonline.com'},
-    {url: 'www.dropbox.com'},
-    {url: 'www.messenger.com'},
+    'www.spl.org',
 
-    {url: 'www.cybercoders.com'},
-    {url: 'indeed.com'},
-    {url: 'jobs.stackoverflow.com'},
-
-    {url: 'www.hiphopdx.com'},
-    {url: 'www.complex.com'},
-
-    {url: 'www.typescriptlang.org'}
+    'www.hoodfamousbakeshop.com'
   ];
 
   const DEFAULT_BLACKLIST = [
@@ -111,16 +84,15 @@ console.log(`MEOW I would pay ${courseValue} for this awesome course! LOL`);
 jQuery( document ).ready(function() {
     if (!DEFAULT_WHITELIST.includes(window.location.hostname)) {
 
-            var div = document.createElement("div");
-            div.id = "ycb-target";
-            document.body.appendChild(div);
+      var div = document.createElement("div");
+      div.id = "ycb-target";
+      document.body.appendChild(div);
 
+        // ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);
+        ReactDOM.render(<App />, document.getElementById("ycb-target"));
 
-                // ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);
-                ReactDOM.render(<App />, document.getElementById("ycb-target"));
-
-                console.log( "ready!" );
-        }
+        console.log( "ready!" );
+    }
 });
 
 
