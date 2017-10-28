@@ -55,10 +55,13 @@ const DEFAULT_WHITELIST = [
     'www.typescriptlang.org',
 
     'www.amazon.com',
+    'smile.amazon.com',
     'www.newegg.com',
 
+    'nirvanahq.com',
     'www.nirvanahq.com',
     'focus.nirvanahq.com',
+    'help.nirvanahq.com',
 
     'trello.com',
 
@@ -66,7 +69,38 @@ const DEFAULT_WHITELIST = [
 
     'www.spl.org',
 
-    'www.hoodfamousbakeshop.com'
+    'www.hoodfamousbakeshop.com',
+
+    'www.apress.com',
+    'checkout.apress.com',
+
+    'twitter.com',
+    'motherless.com',
+
+    'www.coinbase.com',
+
+    'www.zendone.com',
+    'app.zendone.com',
+
+    'accounts.google.com',
+
+    'www.wrike.com',
+
+    'todoist.com',
+
+    'facilethings.com',
+    'app.facilethings.com',
+
+    'seattle.craigslist.org',
+
+    'www.stubhub.com',
+
+    'www.blockchain-basics.com',
+    'www.glassdoor.com',
+
+    'www.dailymotion.com',
+
+    'watch-series.co'
   ];
 
   const DEFAULT_BLACKLIST = [
