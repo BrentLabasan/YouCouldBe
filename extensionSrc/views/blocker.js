@@ -19,14 +19,14 @@ export default class Blocker extends React.Component {
 
     this.tick = this.tick.bind(this);
     this.handleProceedButtonClick = this.handleProceedButtonClick.bind(this);
-    
+
     // this.handleCountdownEnded = this.handleCountdownEnded.bind(this);
     this.state = {
       timer: this.props.db[URL].count * multiplier,
       hasCountdownEnded: false
     }
 
-    
+
   }
 
   // https://stackoverflow.com/a/31615643/708355
@@ -41,7 +41,7 @@ export default class Blocker extends React.Component {
   // }
 
   handleProceedButtonClick() {
-    this.props.handleCountdownEnded();    
+    this.props.handleCountdownEnded();
   }
 
   tick() {
@@ -57,15 +57,15 @@ export default class Blocker extends React.Component {
   }
 
   componentDidMount() {
-    console.log("WOW");
-    console.log(this.props.siteVisitCount);
+    // console.log("WOW");
+    // console.log(this.props.siteVisitCount);
 
     chrome.storage.sync.get([URL, 'tickSoundEnabled'], (db) => {
-      this.setState({ 
+      this.setState({
         timer: db[URL].count * multiplier ,
         tickSoundEnabled: db.tickSoundEnabled
       });
-      console.log("countdownTimer.js componentDidMount()");
+      // console.log("countdownTimer.js componentDidMount()");
     });
 
     var intervalId = setInterval(this.tick, 1000);
@@ -82,7 +82,7 @@ export default class Blocker extends React.Component {
   render() {
     // console.log("this.props.currentHostname " + this.props.currentHostname);
     // console.log(this.props.db);
-    console.log("blocker render()");
+    // console.log("blocker render()");
 
     return (
       <div id="ycb-blocker">

@@ -14,10 +14,10 @@ export default class CountdownTimer extends React.Component {
     super(props);
 
     this.tick = this.tick.bind(this);
-    // this.handleCountdownEnded = this.handleCountdownEnded.bind(this);    
-    
-    console.log("CountdownTimer");
-    console.log(this.props);
+    // this.handleCountdownEnded = this.handleCountdownEnded.bind(this);
+
+    // console.log("CountdownTimer");
+    // console.log(this.props);
 
     audioTimerStarted.src = chrome.runtime.getURL('/extensionSrc/audio/bluedistortion/alert-01.wav');
     audioTimerStarted.play();
@@ -56,15 +56,15 @@ export default class CountdownTimer extends React.Component {
   }
 
   componentDidMount() {
-    console.log("WOW");
-    console.log(this.props.siteVisitCount);
+    // console.log("WOW");
+    // console.log(this.props.siteVisitCount);
 
     chrome.storage.sync.get([URL, 'tickSoundEnabled'], (db) => {
-      this.setState({ 
+      this.setState({
         seconds: db[URL].count * multiplier ,
         tickSoundEnabled: db.tickSoundEnabled
       });
-      console.log("countdownTimer.js componentDidMount()");
+      // console.log("countdownTimer.js componentDidMount()");
     });
 
     this.interval = setInterval(() => this.tick(), 1000);
