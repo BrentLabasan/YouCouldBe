@@ -5,7 +5,6 @@ import helpers from './helpers';
 import constants from './constants';
 import viewBlocker from './view-blocker';
 import viewOptions from './view-options';
-import jsx from './jsx.jsx';
 import jQuery from 'jQuery';
 
 import React from 'react';
