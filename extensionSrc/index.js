@@ -111,10 +111,6 @@ const DEFAULT_WHITELIST = [
     {url: 'www.dailymotion.com', weight: 3}
   ];
 
-const courseValue = numeral(1000).format('$0,0.00');
-console.log(`MEOW I would pay ${courseValue} for this awesome course! LOL`);
-// debugger;
-
 jQuery( document ).ready(function() {
     if (!DEFAULT_WHITELIST.includes(window.location.hostname)) {
 
@@ -125,7 +121,7 @@ jQuery( document ).ready(function() {
         // ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);
         ReactDOM.render(<App />, document.getElementById("ycb-target"));
 
-        console.log( "ready!" );
+        // console.log( "ready!" );
     }
 });
 

@@ -31,7 +31,7 @@ class App extends Component {
     this.activateBlockerView = this.activateBlockerView.bind(this);
     this.setYcbContainerVisible = this.setYcbContainerVisible.bind(this);
 
-    console.log("App.js constructor()");
+    // console.log("App.js constructor()");
 
     this.state = {
       currentHostname: window.location.hostname,
@@ -47,17 +47,13 @@ class App extends Component {
 
   componentDidMount() {
 
-    // debugger;
 
     chrome.storage.sync.get(URL, (db) => {
-
-      // debugger;
 
       if (!db[URL]) {
         db[URL] = {};
       }
 
-      // console.log("date " + date);
       if (!db[URL][date]) {
         db[URL][date] = true;
         db[URL]["count"] = null;
@@ -73,9 +69,8 @@ class App extends Component {
 
       this.setState({ db: db });
 
-      // debugger;
-      console.log("App.js componentDidMount()");
-      console.log(this.state.db);
+      // console.log("App.js componentDidMount()");
+      // console.log(this.state.db);
 
     });
 
@@ -83,7 +78,7 @@ class App extends Component {
   }
 
   activateMetaView(viewMetaSlideIndex) {
-    this.setState({ 
+    this.setState({
       view: 'meta',
       viewMetaSlideIndex: viewMetaSlideIndex
      });
@@ -99,8 +94,8 @@ class App extends Component {
   }
 
   render() {
-    console.log("App.js render()");
-    console.log(this.state.isYcbContainerVisible);
+    // console.log("App.js render()");
+    // console.log(this.state.isYcbContainerVisible);
 
     return (
       <MuiThemeProvider>
