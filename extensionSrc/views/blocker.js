@@ -52,7 +52,12 @@ export default class Blocker extends React.Component {
       }));
     } else {
       this.setState({hasCountdownEnded: true});
-      clearInterval(interval);
+
+      // DA FUQ why does clearInterval keep firing?!?!
+      // if (!(typeof interval === 'undefined')) {
+      // if (false) {
+      //   clearInterval(interval);
+      // }
     }
   }
 
