@@ -148,25 +148,6 @@ const DEFAULT_WHITELIST = [
     {url: 'www.dailymotion.com', weight: 3}
   ];
 
-  const DEFAULT_ALTERNATIVE_ACTIVITIES = [
-
-    {name: "practice singing", lenMin: 5, tags: ['']},
-
-    {name: "wash the dishes", lenMin: 5, tags: ['chore']},
-    {name: "take the trash out", lenMin: 3, tags: ['chore']},
-
-    {name: "walk around the block", lenMin: 5, tags: ['exercise']},
-
-    {name: "standing pike", lenMin: 1, tags: ['stretch']},
-
-    {name: "meditate", lenMin: 5, tags: ['mental health']},
-
-    {name: "call your mom", lenMin: 5, tags: ['family']}
-  ];
-
-  // {name: "", lenMin: , tags: ['']},
-
-
 jQuery( document ).ready(function() {
     if (!DEFAULT_WHITELIST.includes(window.location.hostname || window.location.hostname + window.location.pathname)) {
 
