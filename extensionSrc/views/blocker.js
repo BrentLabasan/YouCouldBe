@@ -146,7 +146,7 @@ export default class Blocker extends React.Component {
             </tr>
             <tr>
               <td>
-                <h2>{this.props.currentHostname} <TimerBar totalWaitTime={} /></h2>
+                <h2>{this.props.currentHostname} <TimerBar totalWaitTime={50} /></h2>
               </td>
               <td>
               </td>
