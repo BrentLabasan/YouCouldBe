@@ -1,16 +1,17 @@
 #ycb-target {
     background-color: transparent;
+    color: black;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     font-family: 'Ubuntu Condensed', sans-serif;
-    
+
 }
 
 #ycb-container {
-    background-color: #171833;
+    background-color: white;
     font-size: 50px;
     width: 100%;
     height: 100%;
@@ -21,8 +22,8 @@
 }
 
 #ycb-blocker {
-    color: #FFD77A;
-    background-color: #171833;
+    /* color: grey; */
+    background-color: white;
     text-align: center;
     font-weight: bold;
     padding: 20px;
@@ -32,29 +33,29 @@
     font-size: 50px;
     line-height: 75px;
     font-weight: bold;
-    color: #FFD77A;
+    /* color: #FFD77A; */
 }
 
 #ycb-meta h2 {
     font-size: 50px;
     font-weight: bold;
-    color: #FFD77A;
+    /* color: #FFD77A; */
 }
 
 #ycb-meta h3 {
     font-size: 35px;
     font-weight: bold;
-    color: #999999;
+    /* color: #999999; */
 }
 
 #ycb-meta h4 {
     font-size: 30px;
     font-weight: bold;
-    color: #999999;
+    /* color: #999999; */
 }
 
 #ycb-meta #view-meta-options label {
-    color: white;
+    color: red;
     /* width:  */
 }
 
@@ -66,14 +67,14 @@
     font-size: 50px;
     line-height: 75px;
     font-weight: bold;
-    color: #FFD77A;
+    color: black;
 }
 
 #ycb-blocker .txtAlternative {
     font-size: 100px;
     line-height: 150px;
     font-weight: bold;
-    color: yellow;
+    color: black;
 }
 
 #ycb-blocker a:hover {
@@ -123,25 +124,25 @@ footer {
 }
 
 #ycb-container footer ul {
-    margin: 20px 0 0 0;   
-     color: white;
+    margin: 20px 0 0 0;
+     color: grey;
 }
 
 #ycb-container #btn-metaFooter-back {
     font-size: 25px;
-    color: white;
+    color: grey;
 }
 
 #ycb-container #btn-metaFooter-back:hover {
-    color: yellow;
+    color: grey;
     cursor: pointer;
 }
 
 #ycb-container footer li {
     display: inline;
     font-size: 25px;
-    margin: 0 20px  0 0;   
-    color: white;
+    margin: 0 20px  0 0;
+    color: grey;
 }
 
 #ycb-container footer li:hover {

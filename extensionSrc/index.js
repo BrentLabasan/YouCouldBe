@@ -136,7 +136,9 @@ const DEFAULT_WHITELIST = [
     'www.doordash.com',
 
     'www.teksystems.com',
-    'timeandexpense.teksystems.com'
+    'timeandexpense.teksystems.com',
+
+    'codepen.io'
 
   ];
 
