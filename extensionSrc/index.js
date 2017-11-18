@@ -1,6 +1,4 @@
 import './index.css';
-import ayy from './file1';
-import lmao from './file2';
 import helpers from './helpers';
 import constants from './constants';
 import viewBlocker from './view-blocker';
@@ -14,13 +12,18 @@ import App from './App';
 import numeral from 'numeral';
 
 const DEFAULT_WHITELIST = [
+
+    'www.facebook.com/events/',
+
     'developer.chrome.com',
     'www.google.com',
     'gmail.com',
     'mail.google.com',
     'docs.google.com',
+    'calendar.google.com',
     'www.calendar.google.com',
     'play.google.com',
+    'images.google.com',
     'www.gamefaqs.com',
     'news.ycombinator.com',
     'github.com',
@@ -38,6 +41,7 @@ const DEFAULT_WHITELIST = [
     'www.dropbox.com',
     'www.messenger.com',
     'www.wikipedia.org',
+    'en.wikipedia.org',
 
     'www.linkedin.com',
     'www.cybercoders.com',
@@ -77,6 +81,8 @@ const DEFAULT_WHITELIST = [
     'motherless.com',
 
     'www.coinbase.com',
+    'www.gdax.com',
+    'support.gdax.com',
 
     'www.zendone.com',
     'app.zendone.com',
@@ -99,7 +105,39 @@ const DEFAULT_WHITELIST = [
 
     'www.dailymotion.com',
 
-    'watch-series.co'
+    'watch-series.co',
+
+    'onlineclock.net',
+    'www.online-stopwatch.com',
+    'www.onlinemeditationtimer.com',
+
+    'barnesandnoble.com',
+    'stores.barnesandnoble.com',
+
+    'uptoken.org',
+
+    'www.meetup.com',
+
+    'www.4chan.org',
+    'boards.4chan.org',
+
+    'jsfiddle.net',
+
+    'thepiratebay.org',
+
+    'www.ebay.com',
+
+    'nekoseattle.com',
+
+    'www.okcupid.com',
+
+    'sleepyti.me/',
+
+    'www.doordash.com',
+
+    'www.teksystems.com',
+    'timeandexpense.teksystems.com'
+
   ];
 
   const DEFAULT_BLACKLIST = [
@@ -111,7 +149,7 @@ const DEFAULT_WHITELIST = [
   ];
 
 jQuery( document ).ready(function() {
-    if (!DEFAULT_WHITELIST.includes(window.location.hostname)) {
+    if (!DEFAULT_WHITELIST.includes(window.location.hostname || window.location.hostname + window.location.pathname)) {
 
       var div = document.createElement("div");
       div.id = "ycb-target";
