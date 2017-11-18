@@ -17,11 +17,33 @@ const style = {
   margin: 12,
 };
 
-const URL = window.location.hostname;
+const hostname = window.location.hostname;
 const MULTIPLIER = 5;
 
 var d = new Date();
 let date = "" + d.getFullYear() + d.getMonth() + d.getDate();
+
+var audio = new Audio();
+var audioTimerStarted = new Audio();
+var audioTimerEnded = new Audio();
+
+const multiplier = 5;
+
+const DEFAULT_ALTERNATIVE_ACTIVITIES = [
+
+    { name: "practice singing", lenMin: 5, tags: [''] },
+
+    { name: "wash the dishes", lenMin: 5, tags: ['chore'] },
+    { name: "take the trash out", lenMin: 3, tags: ['chore'] },
+
+    { name: "walk around the block", lenMin: 5, tags: ['exercise'] },
+
+    { name: "standing pike", lenMin: 1, tags: ['stretch'] },
+
+    { name: "meditate", lenMin: 5, tags: ['mental health'] },
+
+    { name: "call your mom", lenMin: 5, tags: ['family'] }
+  ];
 
 class App extends Component {
   constructor() {
@@ -30,6 +52,7 @@ class App extends Component {
     this.activateMetaView = this.activateMetaView.bind(this);
     this.activateBlockerView = this.activateBlockerView.bind(this);
     this.setYcbContainerVisible = this.setYcbContainerVisible.bind(this);
+    this.tick = this.tick.bind(this);
 
     // console.log("App.js constructor()");
 
@@ -38,32 +61,62 @@ class App extends Component {
       db: {
         [window.location.hostname]: { count: 0, date: date }
       },
+
       view: 'blocker',
       isYcbContainerVisible: true,
-      viewMetaSlideIndex: 0
+      viewMetaSlideIndex: 0,
+      seconds: 50,
+      tickSoundEnabled: false,
+
+      timer: 50 * multiplier,
+      hasCountdownEnded: false,
+      alternativeActivityIndex: Math.floor(Math.random() * DEFAULT_ALTERNATIVE_ACTIVITIES.length)
+
     };
 
+  }
+
+  tick() {
+    console.log("tick() App.js");
+    if (this.state.seconds > 0) { // timer is still counting down
+      this.setState((prevState) => ({
+        seconds: prevState.seconds - 1
+      }));
+      if (this.state.tickSoundEnabled) {
+        audio.src = chrome.runtime.getURL('tick.mp3');
+        audio.play();
+      }
+
+    } else { // countdown has ended
+      if (this.state.isTimerRunning) {
+        audioTimerEnded.src = chrome.runtime.getURL('/extensionSrc/audio/bluedistortion/alert-06.wav');
+        audioTimerEnded.play();
+        this.setState({ isTimerRunning: false });
+      }
+      // this.handleCountdownEnded();
+      // jQuery("#ycb-target").hide();
+    }
   }
 
   componentDidMount() {
 
 
-    chrome.storage.sync.get(URL, (db) => {
+    chrome.storage.sync.get(hostname, (db) => {
 
-      if (!db[URL]) {
-        db[URL] = {};
+      if (!db[hostname]) {
+        db[hostname] = {};
       }
 
-      if (!db[URL][date]) {
-        db[URL][date] = true;
-        db[URL]["count"] = null;
+      if (!db[hostname][date]) {
+        db[hostname][date] = true;
+        db[hostname]["count"] = null;
       }
 
 
-      if (!db[URL]["count"]) {
-        db[URL]["count"] = 0;
+      if (!db[hostname]["count"]) {
+        db[hostname]["count"] = 0;
       }
-      db[URL]["count"]++;
+      db[hostname]["count"]++;
 
       chrome.storage.sync.set(db);
 
@@ -74,6 +127,18 @@ class App extends Component {
 
     });
 
+    chrome.storage.sync.get([hostname, 'tickSoundEnabled'], (db) => {
+      this.setState({
+        timer: db[URL].count * multiplier,
+        tickSoundEnabled: db.tickSoundEnabled
+      });
+      // console.log("countdownTimer.js componentDidMount()");
+    });
+
+    var intervalId = setInterval(this.tick, 1000);
+    // store intervalId in the state so it can be accessed later:
+    this.setState({ intervalId: intervalId });
+
 
   }
 
@@ -81,7 +146,7 @@ class App extends Component {
     this.setState({
       view: 'meta',
       viewMetaSlideIndex: viewMetaSlideIndex
-     });
+    });
   }
 
   activateBlockerView() {
@@ -105,12 +170,14 @@ class App extends Component {
         <IconButton iconClassName="muidocs-icon-custom-github" /> */}
 
         {this.state.isYcbContainerVisible && (<div id="ycb-container" className="App">
-          {/* <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" /> */}
+          <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
           {this.state.view === 'blocker' && <Blocker db={this.state.db} currentHostname={this.state.currentHostname} handleCountdownEnded={this.setYcbContainerVisible} />}
           {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={this.state.currentHostname} viewMetaSlideIndex={this.state.viewMetaSlideIndex} />}
 
           {/* <Timer /> */}
           {/* <RaisedButton label="Default" /> */}
+
+          {this.state.seconds} NEW SECONDS
 
           <Footer view={this.state.view} activateMetaView={this.activateMetaView} activateBlockerView={this.activateBlockerView} />
         </div>)}
