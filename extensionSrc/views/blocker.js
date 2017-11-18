@@ -43,7 +43,7 @@ export default class Blocker extends React.Component {
 
     // this.handleCountdownEnded = this.handleCountdownEnded.bind(this);
     this.state = {
-      timer: this.props.db[URL].count * multiplier,
+      timer: this.props.seconds,
       hasCountdownEnded: false,
       alternativeActivityIndex: Math.floor(Math.random() * DEFAULT_ALTERNATIVE_ACTIVITIES.length)
     }

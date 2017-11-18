@@ -57,7 +57,6 @@ class App extends Component {
     // console.log("App.js constructor()");
 
     this.state = {
-      currentHostname: window.location.hostname,
       db: {
         [window.location.hostname]: { count: 0, date: date }
       },
@@ -65,10 +64,10 @@ class App extends Component {
       view: 'blocker',
       isYcbContainerVisible: true,
       viewMetaSlideIndex: 0,
-      seconds: 50,
+      seconds: 1,
       tickSoundEnabled: false,
 
-      timer: 50 * multiplier,
+      timer: 1 * multiplier,
       hasCountdownEnded: false,
       alternativeActivityIndex: Math.floor(Math.random() * DEFAULT_ALTERNATIVE_ACTIVITIES.length)
 
@@ -78,6 +77,11 @@ class App extends Component {
 
   tick() {
     console.log("tick() App.js");
+
+    chrome.storage.sync.get(hostname, (db) => {
+      this.setState({seconds: })
+    }
+
     if (this.state.seconds > 0) { // timer is still counting down
       this.setState((prevState) => ({
         seconds: prevState.seconds - 1
@@ -111,7 +115,6 @@ class App extends Component {
         db[hostname][date] = true;
         db[hostname]["count"] = null;
       }
-
 
       if (!db[hostname]["count"]) {
         db[hostname]["count"] = 0;
@@ -171,8 +174,8 @@ class App extends Component {
 
         {this.state.isYcbContainerVisible && (<div id="ycb-container" className="App">
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
-          {this.state.view === 'blocker' && <Blocker db={this.state.db} currentHostname={this.state.currentHostname} handleCountdownEnded={this.setYcbContainerVisible} />}
-          {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={this.state.currentHostname} viewMetaSlideIndex={this.state.viewMetaSlideIndex} />}
+          {this.state.view === 'blocker' && <Blocker seconds={this.state.seconds} db={this.state.db} currentHostname={hostname} handleCountdownEnded={this.setYcbContainerVisible} />}
+          {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={hostname} viewMetaSlideIndex={this.state.viewMetaSlideIndex} />}
 
           {/* <Timer /> */}
           {/* <RaisedButton label="Default" /> */}
