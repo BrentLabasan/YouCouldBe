@@ -122,7 +122,7 @@ export default class Blocker extends React.Component {
 
           <tr>
               <td>
-                <h3>DO THIS</h3>
+                <h2>DO THIS</h2>
               </td>
               <td>
               </td>
@@ -130,7 +130,7 @@ export default class Blocker extends React.Component {
 
             <tr>
               <td>
-                <h2>{DEFAULT_ALTERNATIVE_ACTIVITIES[this.state.alternativeActivityIndex].name}</h2>
+                <h2>&#8212;&gt; {DEFAULT_ALTERNATIVE_ACTIVITIES[this.state.alternativeActivityIndex].name}</h2>
               </td>
               <td>
                 {DEFAULT_ALTERNATIVE_ACTIVITIES[this.state.alternativeActivityIndex].lenMin}
@@ -139,14 +139,14 @@ export default class Blocker extends React.Component {
 
             <tr>
               <td>
-                <h3>BEFORE VISITING</h3>
+                <h2>BEFORE VISITING</h2>
               </td>
               <td>
               </td>
             </tr>
             <tr>
               <td>
-                <h2>{this.props.currentHostname} <TimerBar totalWaitTime={50} /></h2>
+                <h2>&#8212;&gt; {this.props.currentHostname} <TimerBar totalWaitTime={50} /></h2>
               </td>
               <td>
               </td>
