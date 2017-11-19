@@ -140,7 +140,9 @@ const DEFAULT_WHITELIST = [
 
     'codepen.io',
 
-    'momentjs.com'
+    'momentjs.com',
+
+    'fonts.google.com'
 
   ];
 
