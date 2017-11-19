@@ -27,8 +27,6 @@ var audio = new Audio();
 var audioTimerStarted = new Audio();
 var audioTimerEnded = new Audio();
 
-const multiplier = 5;
-
 const DEFAULT_ALTERNATIVE_ACTIVITIES = [
 
     { name: "practice singing", lenMin: 5, tags: [''] },
@@ -56,8 +54,11 @@ class App extends Component {
 
     // console.log("App.js constructor()");
 
+    if (!localStorage.getItem('ycbCount')) {
+      localStorage.setItem('ycbCount', 1);
+    }
+
     this.state = {
-      currentHostname: window.location.hostname,
       db: {
         [window.location.hostname]: { count: 0, date: date }
       },
@@ -65,19 +66,64 @@ class App extends Component {
       view: 'blocker',
       isYcbContainerVisible: true,
       viewMetaSlideIndex: 0,
-      seconds: 50,
+      seconds: MULTIPLIER * localStorage.getItem('ycbCount'),
       tickSoundEnabled: false,
 
-      timer: 50 * multiplier,
+      timer: 1 * MULTIPLIER,
       hasCountdownEnded: false,
       alternativeActivityIndex: Math.floor(Math.random() * DEFAULT_ALTERNATIVE_ACTIVITIES.length)
 
     };
+  }
 
+  componentDidMount() {
+    localStorage.setItem('ycbCount', parseInt(localStorage.getItem('ycbCount')) + 1);
+
+    chrome.storage.sync.get(hostname, (db) => {
+
+      if (!db[hostname]) {
+        db[hostname] = {};
+      }
+
+      if (!db[hostname][date]) {
+        db[hostname][date] = true;
+        db[hostname]["count"] = null;
+      }
+
+      if (!db[hostname]["count"]) {
+        db[hostname]["count"] = 0;
+      }
+      db[hostname]["count"]++;
+
+      this.setState({ db: db });
+
+      // console.log("App.js componentDidMount()");
+      // console.log(this.state.db);
+
+      // chrome.storage.sync.get([hostname, 'tickSoundEnabled'], (db) => {
+      //   this.setState({
+      //     timer: db[URL].count * MULTIPLIER,
+      //     tickSoundEnabled: db.tickSoundEnabled
+      //   });
+      //   // console.log("countdownTimer.js componentDidMount()");
+      // });
+
+    });
+
+
+
+    var intervalId = setInterval(this.tick, 1000);
+    // store intervalId in the state so it can be accessed later:
+    this.setState({ intervalId: intervalId });
   }
 
   tick() {
-    console.log("tick() App.js");
+    // console.log("tick() App.js");
+
+    // chrome.storage.sync.get(hostname, (db) => {
+    //   this.setState({seconds: })
+    // }
+
     if (this.state.seconds > 0) { // timer is still counting down
       this.setState((prevState) => ({
         seconds: prevState.seconds - 1
@@ -96,50 +142,6 @@ class App extends Component {
       // this.handleCountdownEnded();
       // jQuery("#ycb-target").hide();
     }
-  }
-
-  componentDidMount() {
-
-
-    chrome.storage.sync.get(hostname, (db) => {
-
-      if (!db[hostname]) {
-        db[hostname] = {};
-      }
-
-      if (!db[hostname][date]) {
-        db[hostname][date] = true;
-        db[hostname]["count"] = null;
-      }
-
-
-      if (!db[hostname]["count"]) {
-        db[hostname]["count"] = 0;
-      }
-      db[hostname]["count"]++;
-
-      chrome.storage.sync.set(db);
-
-      this.setState({ db: db });
-
-      // console.log("App.js componentDidMount()");
-      // console.log(this.state.db);
-
-    });
-
-    chrome.storage.sync.get([hostname, 'tickSoundEnabled'], (db) => {
-      this.setState({
-        timer: db[URL].count * multiplier,
-        tickSoundEnabled: db.tickSoundEnabled
-      });
-      // console.log("countdownTimer.js componentDidMount()");
-    });
-
-    var intervalId = setInterval(this.tick, 1000);
-    // store intervalId in the state so it can be accessed later:
-    this.setState({ intervalId: intervalId });
-
-
   }
 
   activateMetaView(viewMetaSlideIndex) {
@@ -171,8 +173,8 @@ class App extends Component {
 
         {this.state.isYcbContainerVisible && (<div id="ycb-container" className="App">
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
-          {this.state.view === 'blocker' && <Blocker db={this.state.db} currentHostname={this.state.currentHostname} handleCountdownEnded={this.setYcbContainerVisible} />}
-          {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={this.state.currentHostname} viewMetaSlideIndex={this.state.viewMetaSlideIndex} />}
+          {this.state.view === 'blocker' && <Blocker isTimerRunning={this.state.seconds > 0} seconds={this.state.seconds} db={this.state.db} currentHostname={hostname} handleCountdownEnded={this.setYcbContainerVisible} />}
+          {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={hostname} viewMetaSlideIndex={this.state.viewMetaSlideIndex} />}
 
           {/* <Timer /> */}
           {/* <RaisedButton label="Default" /> */}

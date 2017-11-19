@@ -43,7 +43,7 @@ export default class Blocker extends React.Component {
 
     // this.handleCountdownEnded = this.handleCountdownEnded.bind(this);
     this.state = {
-      timer: this.props.db[URL].count * multiplier,
+      timer: this.props.seconds,
       hasCountdownEnded: false,
       alternativeActivityIndex: Math.floor(Math.random() * DEFAULT_ALTERNATIVE_ACTIVITIES.length)
     }
@@ -113,7 +113,7 @@ export default class Blocker extends React.Component {
   render() {
     // console.log("this.props.currentHostname " + this.props.currentHostname);
     // console.log(this.props.db);
-    console.log("blocker render()");
+    // console.log("blocker render()");
 
     return (
       <div id="ycb-blocker">
@@ -167,7 +167,7 @@ export default class Blocker extends React.Component {
           <FlatButton label="Primary" primary={true} />
           <IconButton iconClassName="muidocs-icon-custom-github" /> */}
 
-        {this.state.hasCountdownEnded && <button onClick={this.handleProceedButtonClick} className="btn-proceed">PROCEED &gt;</button>}
+        {!this.props.isTimerRunning && <button onClick={this.handleProceedButtonClick} className="btn-proceed">PROCEED &gt;</button>}
       </div>
     );
   }

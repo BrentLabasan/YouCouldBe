@@ -142,13 +142,13 @@ const DEFAULT_WHITELIST = [
 
   ];
 
-  const DEFAULT_BLACKLIST = [
-    {url: 'www.facebook.com', weight: 5},
-    {url: 'www.reddit.com', weight: 5},
-    {url: 'www.instagram.com', weight: 5},
-    {url: 'www.youtube.com.com', weight: 3},
-    {url: 'www.dailymotion.com', weight: 3}
-  ];
+const DEFAULT_BLACKLIST = [
+  {url: 'www.facebook.com', weight: 5},
+  {url: 'www.reddit.com', weight: 5},
+  {url: 'www.instagram.com', weight: 5},
+  {url: 'www.youtube.com.com', weight: 3},
+  {url: 'www.dailymotion.com', weight: 3}
+];
 
 jQuery( document ).ready(function() {
     if (!DEFAULT_WHITELIST.includes(window.location.hostname || window.location.hostname + window.location.pathname)) {
@@ -157,11 +157,7 @@ jQuery( document ).ready(function() {
       div.id = "ycb-target";
       document.body.appendChild(div);
 
-        // ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);
-        ReactDOM.render(<App />, document.getElementById("ycb-target"));
+      ReactDOM.render(<App />, document.getElementById("ycb-target"));
 
-        // console.log( "ready!" );
     }
 });
-
-
