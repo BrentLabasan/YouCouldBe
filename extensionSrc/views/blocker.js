@@ -5,7 +5,7 @@ import CountdownTimer from '../components/countdownTimer';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
-import TimerBar from '../components/timerBar';
+import CountdownBar from '../components/countdownBar';
 
 const URL = window.location.hostname;
 const multiplier = 5;
@@ -17,6 +17,8 @@ const style = {
 const style2 = {
   textAlign: 'left',
 };
+
+const MULTIPLIER = 5;
 
 const DEFAULT_ALTERNATIVE_ACTIVITIES = [
 
@@ -33,6 +35,8 @@ const DEFAULT_ALTERNATIVE_ACTIVITIES = [
 
   { name: "call your mom", lenMin: 5, tags: ['family'] }
 ];
+
+
 
 export default class Blocker extends React.Component {
   constructor(props) {
@@ -134,6 +138,7 @@ export default class Blocker extends React.Component {
               </td>
               <td>
                 {DEFAULT_ALTERNATIVE_ACTIVITIES[this.state.alternativeActivityIndex].lenMin}
+                <CountdownBar timeRemaining={this.props.seconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} />
               </td>
             </tr>
 
@@ -146,7 +151,7 @@ export default class Blocker extends React.Component {
             </tr>
             <tr>
               <td>
-                <h2>&#8212;&gt; {this.props.currentHostname} <TimerBar totalWaitTime={50} /></h2>
+                <h2>&#8212;&gt; {this.props.currentHostname} /></h2>
               </td>
               <td>
               </td>

@@ -45,9 +45,9 @@ export default class CountdownBar extends React.Component {
     );
 
     return (
-      <div>
-        TIME REMAINING: {this.state.timeRemaining / this.props.totalWaitTime} %
-      </div>
+      <span>
+        TIME REMAINING: {this.props.timeRemaining / this.props.countdownAmountSecs} %
+      </span>
     );
   }
 }
