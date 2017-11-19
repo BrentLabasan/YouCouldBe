@@ -2,17 +2,19 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const style = {
-  border: '1px solid black',
+  border: '4px solid black',
   display: 'inline-block',
   width: '200px',
-  borderRadius: '3px',
+  borderRadius: '8px',
   // height: '30px',
-  padding: '1px'
+  padding: '2px',
+  margin: '-10px 25px 0 25px'
 };
 
 export default class ProgressBar extends React.Component {
 
   constructor(props) {
+
     super(props);
 
     this.activateMetaView = this.activateMetaView.bind(this);

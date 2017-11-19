@@ -206,3 +206,9 @@ table {
     text-align: center;
     z-index: 99999999999999999999999999999;
 }
+
+.vcenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

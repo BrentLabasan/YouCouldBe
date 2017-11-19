@@ -38,7 +38,11 @@ const DEFAULT_ALTERNATIVE_ACTIVITIES = [
   { name: "call your mom", lenSec: 300, tags: ['family'] }
 ];
 
-
+let vcenter = {
+  display: 'flex',
+  alignItem: 'center',
+  justifyContent: 'center'
+};
 
 export default class Blocker extends React.Component {
   constructor(props) {
@@ -138,7 +142,7 @@ export default class Blocker extends React.Component {
                 <h2>&#8212;&gt; {DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].name}</h2>
               </td>
               <td>
-                <CountdownBarAltActivity duration={DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec} />
+              <CountdownBarAltActivity duration={DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec} />
               </td>
             </tr>
 
@@ -156,7 +160,7 @@ export default class Blocker extends React.Component {
                 </h2>
               </td>
               <td>
-                <CountdownBar timeRemaining={this.props.seconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} />
+              <CountdownBar timeRemaining={this.props.seconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} />
 
               </td>
             </tr>

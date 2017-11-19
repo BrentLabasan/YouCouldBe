@@ -47,12 +47,12 @@ export default class CountdownBar extends React.Component {
     );
 
     return (
-      <span>
+      <div>
         <ProgressBar percentage={this.props.timeRemaining / this.props.countdownAmountSecs * 100} />
         {parseInt(this.props.timeRemaining / 60).toFixed(0)} min {this.props.timeRemaining % 60} s
 
         {/* {this.props.timeRemaining / this.props.countdownAmountSecs} % */}
-      </span>
+        </div>
     );
   }
 }
