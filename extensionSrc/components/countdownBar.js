@@ -46,7 +46,7 @@ export default class CountdownBar extends React.Component {
 
     return (
       <span>
-        {parseFloat(this.props.timeRemaining / 60).toFixed(0)} min {this.props.timeRemaining % 60} s
+        {parseInt(this.props.timeRemaining / 60)} min {this.props.timeRemaining % 60} s
 
         {/* {this.props.timeRemaining / this.props.countdownAmountSecs} % */}
       </span>
