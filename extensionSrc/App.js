@@ -180,7 +180,7 @@ class App extends Component {
           {/* <RaisedButton label="Default" /> */}
 
           {/* {this.state.seconds} NEW SECONDS */}
-
+<br/><br/>
           <Footer view={this.state.view} activateMetaView={this.activateMetaView} activateBlockerView={this.activateBlockerView} />
         </div>)}
       </MuiThemeProvider>

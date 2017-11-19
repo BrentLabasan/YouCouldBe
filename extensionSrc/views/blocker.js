@@ -54,7 +54,8 @@ export default class Blocker extends React.Component {
     // this.handleCountdownEnded = this.handleCountdownEnded.bind(this);
     this.state = {
       timer: this.props.seconds,
-      hasCountdownEnded: false
+      hasCountdownEnded: false,
+      altActivitySeconds: DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec
     }
 
 
@@ -94,6 +95,17 @@ export default class Blocker extends React.Component {
       //   clearInterval(interval);
       // }
     }
+
+    if (this.state.altActivitySeconds > 0) { // timer is still counting down
+      this.setState((prevState) => ({
+        altActivitySeconds: prevState.altActivitySeconds - 1
+      }));
+    }
+
+
+
+
+
   }
 
   componentDidMount() {
@@ -142,7 +154,8 @@ export default class Blocker extends React.Component {
                 <h2>&#8212;&gt; {DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].name}</h2>
               </td>
               <td>
-              <CountdownBarAltActivity duration={DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec} />
+              {/* <CountdownBarAltActivity duration={DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec} /> */}
+              <CountdownBar timeRemaining={this.state.altActivitySeconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} />
               </td>
             </tr>
 

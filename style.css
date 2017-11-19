@@ -205,6 +205,10 @@ table {
 #ycb-container {
     text-align: center;
     z-index: 99999999999999999999999999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .vcenter {
