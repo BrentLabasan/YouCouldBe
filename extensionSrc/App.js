@@ -77,7 +77,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    debugger;
     localStorage.setItem('ycbCount', parseInt(localStorage.getItem('ycbCount')) + 1);
 
     chrome.storage.sync.get(hostname, (db) => {
@@ -174,7 +173,7 @@ class App extends Component {
 
         {this.state.isYcbContainerVisible && (<div id="ycb-container" className="App">
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
-          {this.state.view === 'blocker' && <Blocker seconds={this.state.seconds} db={this.state.db} currentHostname={hostname} handleCountdownEnded={this.setYcbContainerVisible} />}
+          {this.state.view === 'blocker' && <Blocker isTimerRunning={this.state.seconds > 0} seconds={this.state.seconds} db={this.state.db} currentHostname={hostname} handleCountdownEnded={this.setYcbContainerVisible} />}
           {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={hostname} viewMetaSlideIndex={this.state.viewMetaSlideIndex} />}
 
           {/* <Timer /> */}
