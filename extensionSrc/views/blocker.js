@@ -155,7 +155,7 @@ export default class Blocker extends React.Component {
               </td>
               <td>
               {/* <CountdownBarAltActivity duration={DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec} /> */}
-              <CountdownBar timeRemaining={this.state.altActivitySeconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} />
+              { DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec < MULTIPLIER * localStorage.getItem('ycbCount') && <CountdownBar timeRemaining={this.state.altActivitySeconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} /> }
               </td>
             </tr>
 

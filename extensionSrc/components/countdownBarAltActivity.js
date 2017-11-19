@@ -44,19 +44,6 @@ export default class CountdownBar extends React.Component {
   }
 
   render() {
-
-    let blockerFooter = (
-      <ul>
-        <li onClick={() => this.activateMetaView(0)}>ALTERNATIVES</li>
-        <li onClick={() => this.activateMetaView(1)}>OPTIONS</li>
-        <li onClick={() => this.activateMetaView(2)}>HELP</li>
-        <li onClick={() => this.activateMetaView(3)}>ABOUT</li>
-        <li onClick={() => this.activateMetaView(4)}>DONATE</li>
-      </ul>
-    );
-debugger;
-    alert(this.state.timeRemaining / this.props.duration * 100 < 100);
-
     let metaFooter = (
       <div id="btn-metaFooter-back" onClick={this.activateBlockerView}>&lt; BACK</div>
       // <RaisedButton label="BACK" primary={true} style={style} id="btn-metaFooter-back" onClick={this.activateBlockerView}/>
