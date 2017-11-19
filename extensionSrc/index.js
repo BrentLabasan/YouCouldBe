@@ -160,15 +160,15 @@ const DEFAULT_BLACKLIST = [
 ];
 
 jQuery( document ).ready(function() {
-    let badSite = true;
+    let blockedUrl = true;
     for (let i = 0; i < DEFAULT_WHITELIST.length; i++) {
       // console.log(window.location.hostname + window.location.pathname, DEFAULT_WHITELIST[i]);
       if ( (window.location.hostname + window.location.pathname).includes(DEFAULT_WHITELIST[i]) ) {
-        badSite = false;
+        blockedUrl = false;
       }
 
     }
-    if (badSite) {
+    if (blockedUrl) {
 
       var div = document.createElement("div");
       div.id = "ycb-target";
