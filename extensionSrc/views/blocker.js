@@ -137,8 +137,7 @@ export default class Blocker extends React.Component {
                 <h2>&#8212;&gt; {DEFAULT_ALTERNATIVE_ACTIVITIES[this.state.alternativeActivityIndex].name}</h2>
               </td>
               <td>
-                {DEFAULT_ALTERNATIVE_ACTIVITIES[this.state.alternativeActivityIndex].lenMin}
-                <CountdownBar timeRemaining={this.props.seconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} />
+                <CountdownBar timeRemaining={DEFAULT_ALTERNATIVE_ACTIVITIES[this.state.alternativeActivityIndex].lenMin} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} />
               </td>
             </tr>
 
@@ -151,7 +150,10 @@ export default class Blocker extends React.Component {
             </tr>
             <tr>
               <td>
-                <h2>&#8212;&gt; {this.props.currentHostname} /></h2>
+                <h2>
+                  &#8212;&gt; {this.props.currentHostname}
+                  <CountdownBar timeRemaining={this.props.seconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} />
+                  </h2>
               </td>
               <td>
               </td>
