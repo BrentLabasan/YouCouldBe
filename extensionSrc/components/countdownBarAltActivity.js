@@ -13,7 +13,7 @@ export default class CountdownBar extends React.Component {
     this.activateMetaView = this.activateMetaView.bind(this);
     this.activateBlockerView = this.activateBlockerView.bind(this);
 
-    this.state = {timeRemaining: this.props.totalWaitTime}
+    this.state = { timeRemaining: this.props.duration }
 
   }
 
@@ -27,16 +27,30 @@ export default class CountdownBar extends React.Component {
     this.props.activateBlockerView();
   }
 
+  tick() {
+
+    if (this.state.timeRemaining > 0) { // timer is still counting down
+      this.setState((prevState) => ({
+        timeRemaining: prevState.timeRemaining - 1
+      }));
+
+    }
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+
   render() {
 
     let blockerFooter = (
       <ul>
-      <li onClick={() => this.activateMetaView(0)}>ALTERNATIVES</li>
-      <li onClick={() => this.activateMetaView(1)}>OPTIONS</li>
-      <li onClick={() => this.activateMetaView(2)}>HELP</li>
-      <li onClick={() => this.activateMetaView(3)}>ABOUT</li>
-      <li onClick={() => this.activateMetaView(4)}>DONATE</li>
-    </ul>
+        <li onClick={() => this.activateMetaView(0)}>ALTERNATIVES</li>
+        <li onClick={() => this.activateMetaView(1)}>OPTIONS</li>
+        <li onClick={() => this.activateMetaView(2)}>HELP</li>
+        <li onClick={() => this.activateMetaView(3)}>ABOUT</li>
+        <li onClick={() => this.activateMetaView(4)}>DONATE</li>
+      </ul>
     );
 
     let metaFooter = (
@@ -46,7 +60,7 @@ export default class CountdownBar extends React.Component {
 
     return (
       <span>
-        {parseFloat(this.props.duration / 60).toFixed(0)} min {this.props.duration % 60} s
+        {parseFloat(this.state.timeRemaining / 60).toFixed(0)} min {this.state.timeRemaining % 60} s
       </span>
     );
   }
