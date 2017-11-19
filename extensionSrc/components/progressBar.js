@@ -5,7 +5,7 @@ const style = {
   border: '1px solid black',
   display: 'inline-block',
   width: '200px',
-  borderRadius: '3px'
+  borderRadius: '3px',
   // height: '30px',
   padding: '1px'
 };
