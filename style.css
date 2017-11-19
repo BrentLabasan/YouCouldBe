@@ -212,3 +212,6 @@ table {
   align-items: center;
   justify-content: center;
 }
+
+#blockerTable {
+  margin: 0 auto;

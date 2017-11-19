@@ -126,7 +126,7 @@ export default class Blocker extends React.Component {
 
     return (
       <div id="ycb-blocker">
-        <table style={style2}>
+        <table id="blockerTable" style={style2}>
           <tbody>
 
             <tr>
