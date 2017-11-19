@@ -112,13 +112,13 @@ export default class Blocker extends React.Component {
     // console.log("WOW");
     // console.log(this.props.siteVisitCount);
 
-    chrome.storage.sync.get([URL, 'tickSoundEnabled'], (db) => {
-      this.setState({
-        timer: db[URL].count * multiplier,
-        tickSoundEnabled: db.tickSoundEnabled
-      });
-      // console.log("countdownTimer.js componentDidMount()");
-    });
+    // chrome.storage.sync.get([URL, 'tickSoundEnabled'], (db) => {
+    //   this.setState({
+    //     timer: db[URL].count * multiplier,
+    //     tickSoundEnabled: db.tickSoundEnabled
+    //   });
+    //   // console.log("countdownTimer.js componentDidMount()");
+    // });
 
     var intervalId = setInterval(this.tick, 1000);
     // store intervalId in the state so it can be accessed later:

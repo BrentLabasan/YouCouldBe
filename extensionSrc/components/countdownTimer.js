@@ -59,13 +59,13 @@ export default class CountdownTimer extends React.Component {
     // console.log("WOW");
     // console.log(this.props.siteVisitCount);
 
-    chrome.storage.sync.get([URL, 'tickSoundEnabled'], (db) => {
-      this.setState({
-        seconds: db[URL].count * multiplier ,
-        tickSoundEnabled: db.tickSoundEnabled
-      });
-      // console.log("countdownTimer.js componentDidMount()");
-    });
+    // chrome.storage.sync.get([URL, 'tickSoundEnabled'], (db) => {
+    //   this.setState({
+    //     seconds: db[URL].count * multiplier ,
+    //     tickSoundEnabled: db.tickSoundEnabled
+    //   });
+    //   // console.log("countdownTimer.js componentDidMount()");
+    // });
 
     this.interval = setInterval(() => this.tick(), 1000);
   }
