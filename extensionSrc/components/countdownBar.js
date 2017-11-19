@@ -1,6 +1,8 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import ProgressBar from './progressBar';
+
 const style = {
   margin: 12,
 };
@@ -46,6 +48,7 @@ export default class CountdownBar extends React.Component {
 
     return (
       <span>
+        <ProgressBar percentage={this.props.timeRemaining / this.props.countdownAmountSecs * 100} />
         {parseInt(this.props.timeRemaining / 60).toFixed(0)} min {this.props.timeRemaining % 60} s
 
         {/* {this.props.timeRemaining / this.props.countdownAmountSecs} % */}

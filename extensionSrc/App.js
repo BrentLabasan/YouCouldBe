@@ -179,7 +179,7 @@ class App extends Component {
           {/* <Timer /> */}
           {/* <RaisedButton label="Default" /> */}
 
-          {this.state.seconds} NEW SECONDS
+          {/* {this.state.seconds} NEW SECONDS */}
 
           <Footer view={this.state.view} activateMetaView={this.activateMetaView} activateBlockerView={this.activateBlockerView} />
         </div>)}
