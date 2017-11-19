@@ -38,7 +38,11 @@ const DEFAULT_ALTERNATIVE_ACTIVITIES = [
   { name: "call your mom", lenSec: 300, tags: ['family'] }
 ];
 
-
+let vcenter = {
+  display: 'flex',
+  alignItem: 'center',
+  justifyContent: 'center'
+};
 
 export default class Blocker extends React.Component {
   constructor(props) {
@@ -50,7 +54,8 @@ export default class Blocker extends React.Component {
     // this.handleCountdownEnded = this.handleCountdownEnded.bind(this);
     this.state = {
       timer: this.props.seconds,
-      hasCountdownEnded: false
+      hasCountdownEnded: false,
+      altActivitySeconds: DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec
     }
 
 
@@ -90,19 +95,30 @@ export default class Blocker extends React.Component {
       //   clearInterval(interval);
       // }
     }
+
+    if (this.state.altActivitySeconds > 0) { // timer is still counting down
+      this.setState((prevState) => ({
+        altActivitySeconds: prevState.altActivitySeconds - 1
+      }));
+    }
+
+
+
+
+
   }
 
   componentDidMount() {
     // console.log("WOW");
     // console.log(this.props.siteVisitCount);
 
-    chrome.storage.sync.get([URL, 'tickSoundEnabled'], (db) => {
-      this.setState({
-        timer: db[URL].count * multiplier,
-        tickSoundEnabled: db.tickSoundEnabled
-      });
-      // console.log("countdownTimer.js componentDidMount()");
-    });
+    // chrome.storage.sync.get([URL, 'tickSoundEnabled'], (db) => {
+    //   this.setState({
+    //     timer: db[URL].count * multiplier,
+    //     tickSoundEnabled: db.tickSoundEnabled
+    //   });
+    //   // console.log("countdownTimer.js componentDidMount()");
+    // });
 
     var intervalId = setInterval(this.tick, 1000);
     // store intervalId in the state so it can be accessed later:
@@ -122,7 +138,7 @@ export default class Blocker extends React.Component {
 
     return (
       <div id="ycb-blocker">
-        <table style={style2}>
+        <table id="blockerTable" style={style2}>
           <tbody>
 
             <tr>
@@ -138,7 +154,8 @@ export default class Blocker extends React.Component {
                 <h2>&#8212;&gt; {DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].name}</h2>
               </td>
               <td>
-                <CountdownBarAltActivity duration={DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec} />
+              {/* <CountdownBarAltActivity duration={DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec} /> */}
+              { DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec < MULTIPLIER * localStorage.getItem('ycbCount') && <CountdownBar timeRemaining={this.state.altActivitySeconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} /> }
               </td>
             </tr>
 
@@ -156,7 +173,7 @@ export default class Blocker extends React.Component {
                 </h2>
               </td>
               <td>
-                <CountdownBar timeRemaining={this.props.seconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} />
+              <CountdownBar timeRemaining={this.props.seconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} />
 
               </td>
             </tr>
