@@ -5,8 +5,9 @@ const style = {
   border: '1px solid black',
   display: 'inline-block',
   width: '200px',
-  height: '30px',
-  padding: '2px'
+  borderRadius: '3px'
+  // height: '30px',
+  padding: '1px'
 };
 
 export default class ProgressBar extends React.Component {
@@ -64,7 +65,7 @@ export default class ProgressBar extends React.Component {
 
     return (
       <div style={style}>
-        <div style={{width: this.props.percentage + '%', backgroundColor: 'red'}}>
+        <div style={{fontSize: '20px', width: this.props.percentage + '%', backgroundColor: 'black', borderRadius: '3px'}}>
           &nbsp;
           </div>
       </div>
