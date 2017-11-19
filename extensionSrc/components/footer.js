@@ -12,7 +12,7 @@ export default class Footer extends React.Component {
 
     this.activateMetaView = this.activateMetaView.bind(this);
     this.activateBlockerView = this.activateBlockerView.bind(this);
-    
+
   }
 
   activateMetaView(viewMetaSlideIndex) {

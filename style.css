@@ -170,7 +170,7 @@ table {
 #ycb-container footer {
     text-align: center;
     display: inline-block;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
 }
 
