@@ -24,19 +24,19 @@ const MULTIPLIER = 5;
 
 const DEFAULT_ALTERNATIVE_ACTIVITIES = [
 
-      { name: "practice singing", lenSec: 300, tags: [''] },
+  { name: "practice singing", lenSec: 300, tags: [''] },
 
-      { name: "wash the dishes", lenSec: 300, tags: ['chore'] },
-      { name: "take the trash out", lenSec: 180, tags: ['chore'] },
+  { name: "wash the dishes", lenSec: 300, tags: ['chore'] },
+  { name: "take the trash out", lenSec: 180, tags: ['chore'] },
 
-      { name: "walk around the block", lenSec: 300, tags: ['exercise'] },
+  { name: "walk around the block", lenSec: 300, tags: ['exercise'] },
 
-      { name: "standing pike", lenSec: 60, tags: ['stretch'] },
+  { name: "standing pike", lenSec: 60, tags: ['stretch'] },
 
-      { name: "meditate", lenSec: 300, tags: ['mental health'] },
+  { name: "meditate", lenSec: 300, tags: ['mental health'] },
 
-      { name: "call your mom", lenSec: 300, tags: ['family'] }
-  ];
+  { name: "call your mom", lenSec: 300, tags: ['family'] }
+];
 
 
 
@@ -125,7 +125,7 @@ export default class Blocker extends React.Component {
         <table style={style2}>
           <tbody>
 
-          <tr>
+            <tr>
               <td>
                 <h2>DO THIS</h2>
               </td>
@@ -153,10 +153,11 @@ export default class Blocker extends React.Component {
               <td>
                 <h2>
                   &#8212;&gt; {this.props.currentHostname}
-                  <CountdownBar timeRemaining={this.props.seconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} />
-                  </h2>
+                </h2>
               </td>
               <td>
+                <CountdownBar timeRemaining={this.props.seconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} />
+
               </td>
             </tr>
 
