@@ -167,7 +167,7 @@ table {
     cursor: pointer;
 }
 
-footer {
+#ycb-container footer {
     text-align: center;
     display: inline-block;
     position: absolute;

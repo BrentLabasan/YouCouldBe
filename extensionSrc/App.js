@@ -27,8 +27,6 @@ var audio = new Audio();
 var audioTimerStarted = new Audio();
 var audioTimerEnded = new Audio();
 
-const multiplier = 5;
-
 const DEFAULT_ALTERNATIVE_ACTIVITIES = [
 
     { name: "practice singing", lenMin: 5, tags: [''] },
@@ -56,6 +54,10 @@ class App extends Component {
 
     // console.log("App.js constructor()");
 
+    if (!localStorage.getItem('ycbCount')) {
+      localStorage.setItem('ycbCount', 1);
+    }
+
     this.state = {
       db: {
         [window.location.hostname]: { count: 0, date: date }
@@ -64,23 +66,64 @@ class App extends Component {
       view: 'blocker',
       isYcbContainerVisible: true,
       viewMetaSlideIndex: 0,
-      seconds: 1,
+      seconds: MULTIPLIER * localStorage.getItem('ycbCount'),
       tickSoundEnabled: false,
 
-      timer: 1 * multiplier,
+      timer: 1 * MULTIPLIER,
       hasCountdownEnded: false,
       alternativeActivityIndex: Math.floor(Math.random() * DEFAULT_ALTERNATIVE_ACTIVITIES.length)
 
     };
+  }
 
+  componentDidMount() {
+    debugger;
+    localStorage.setItem('ycbCount', parseInt(localStorage.getItem('ycbCount')) + 1);
+
+    chrome.storage.sync.get(hostname, (db) => {
+
+      if (!db[hostname]) {
+        db[hostname] = {};
+      }
+
+      if (!db[hostname][date]) {
+        db[hostname][date] = true;
+        db[hostname]["count"] = null;
+      }
+
+      if (!db[hostname]["count"]) {
+        db[hostname]["count"] = 0;
+      }
+      db[hostname]["count"]++;
+
+      this.setState({ db: db });
+
+      // console.log("App.js componentDidMount()");
+      // console.log(this.state.db);
+
+      // chrome.storage.sync.get([hostname, 'tickSoundEnabled'], (db) => {
+      //   this.setState({
+      //     timer: db[URL].count * MULTIPLIER,
+      //     tickSoundEnabled: db.tickSoundEnabled
+      //   });
+      //   // console.log("countdownTimer.js componentDidMount()");
+      // });
+
+    });
+
+
+
+    var intervalId = setInterval(this.tick, 1000);
+    // store intervalId in the state so it can be accessed later:
+    this.setState({ intervalId: intervalId });
   }
 
   tick() {
-    console.log("tick() App.js");
+    // console.log("tick() App.js");
 
-    chrome.storage.sync.get(hostname, (db) => {
-      this.setState({seconds: })
-    }
+    // chrome.storage.sync.get(hostname, (db) => {
+    //   this.setState({seconds: })
+    // }
 
     if (this.state.seconds > 0) { // timer is still counting down
       this.setState((prevState) => ({
@@ -100,49 +143,6 @@ class App extends Component {
       // this.handleCountdownEnded();
       // jQuery("#ycb-target").hide();
     }
-  }
-
-  componentDidMount() {
-
-
-    chrome.storage.sync.get(hostname, (db) => {
-
-      if (!db[hostname]) {
-        db[hostname] = {};
-      }
-
-      if (!db[hostname][date]) {
-        db[hostname][date] = true;
-        db[hostname]["count"] = null;
-      }
-
-      if (!db[hostname]["count"]) {
-        db[hostname]["count"] = 0;
-      }
-      db[hostname]["count"]++;
-
-      chrome.storage.sync.set(db);
-
-      this.setState({ db: db });
-
-      // console.log("App.js componentDidMount()");
-      // console.log(this.state.db);
-
-    });
-
-    chrome.storage.sync.get([hostname, 'tickSoundEnabled'], (db) => {
-      this.setState({
-        timer: db[URL].count * multiplier,
-        tickSoundEnabled: db.tickSoundEnabled
-      });
-      // console.log("countdownTimer.js componentDidMount()");
-    });
-
-    var intervalId = setInterval(this.tick, 1000);
-    // store intervalId in the state so it can be accessed later:
-    this.setState({ intervalId: intervalId });
-
-
   }
 
   activateMetaView(viewMetaSlideIndex) {

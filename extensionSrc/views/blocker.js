@@ -113,7 +113,7 @@ export default class Blocker extends React.Component {
   render() {
     // console.log("this.props.currentHostname " + this.props.currentHostname);
     // console.log(this.props.db);
-    console.log("blocker render()");
+    // console.log("blocker render()");
 
     return (
       <div id="ycb-blocker">
