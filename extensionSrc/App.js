@@ -173,6 +173,11 @@ class App extends Component {
 
         {this.state.isYcbContainerVisible && (<div id="ycb-container" className="App">
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+          <div id="logo">
+              PROCRASTINATE
+              <br/>
+              LATER&trade;
+            </div>
           {this.state.view === 'blocker' && <Blocker alternativeActivityIndex={this.state.alternativeActivityIndex} isTimerRunning={this.state.seconds > 0} seconds={this.state.seconds} db={this.state.db} currentHostname={hostname} handleCountdownEnded={this.setYcbContainerVisible} />}
           {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={hostname} viewMetaSlideIndex={this.state.viewMetaSlideIndex} />}
 
@@ -180,7 +185,7 @@ class App extends Component {
           {/* <RaisedButton label="Default" /> */}
 
           {/* {this.state.seconds} NEW SECONDS */}
-<br/><br/>
+<br/>
           <Footer view={this.state.view} activateMetaView={this.activateMetaView} activateBlockerView={this.activateBlockerView} />
         </div>)}
       </MuiThemeProvider>

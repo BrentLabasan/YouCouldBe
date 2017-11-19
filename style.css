@@ -68,6 +68,14 @@ table {
     top: 0;
     left: 0;
     /* padding: 20px; */
+    flex-direction: column;
+}
+
+#ycb-container #logo {
+  text-align: left;
+  font-size: 24px;
+  font-weight: 100;
+  margin: 0 0 40px 0;
 }
 
 #ycb-blocker {
@@ -170,7 +178,7 @@ table {
 #ycb-container footer {
     text-align: center;
     display: block;
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 
@@ -219,3 +227,4 @@ table {
 
 #blockerTable {
   margin: 0 auto;
+}

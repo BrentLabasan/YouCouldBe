@@ -92,6 +92,7 @@ const DEFAULT_WHITELIST = [
     'www.wrike.com',
 
     'todoist.com',
+    'support.todoist.com',
 
     'facilethings.com',
     'app.facilethings.com',
@@ -142,7 +143,11 @@ const DEFAULT_WHITELIST = [
 
     'momentjs.com',
 
-    'fonts.google.com'
+    'fonts.google.com',
+
+    'www.redfin.com',
+
+    'www.reddit.com/r/javascript/'
 
   ];
 
@@ -155,7 +160,15 @@ const DEFAULT_BLACKLIST = [
 ];
 
 jQuery( document ).ready(function() {
-    if (!DEFAULT_WHITELIST.includes(window.location.hostname || window.location.hostname + window.location.pathname)) {
+    let blockedUrl = true;
+    for (let i = 0; i < DEFAULT_WHITELIST.length; i++) {
+      // console.log(window.location.hostname + window.location.pathname, DEFAULT_WHITELIST[i]);
+      if ( (window.location.hostname + window.location.pathname).includes(DEFAULT_WHITELIST[i]) ) {
+        blockedUrl = false;
+      }
+
+    }
+    if (blockedUrl) {
 
       var div = document.createElement("div");
       div.id = "ycb-target";
