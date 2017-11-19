@@ -71,6 +71,13 @@ table {
     flex-direction: column;
 }
 
+#ycb-container #logo {
+  text-align: left;
+  font-size: 24px;
+  font-weight: 100;
+  margin: 0 0 40px 0;
+}
+
 #ycb-blocker {
     /* color: grey; */
     background-color: white;
