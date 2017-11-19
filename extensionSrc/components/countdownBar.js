@@ -5,7 +5,7 @@ const style = {
   margin: 12,
 };
 
-export default class TimerBar extends React.Component {
+export default class CountdownBar extends React.Component {
 
   constructor(props) {
     super(props);
