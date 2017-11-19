@@ -138,7 +138,11 @@ const DEFAULT_WHITELIST = [
     'www.teksystems.com',
     'timeandexpense.teksystems.com',
 
-    'codepen.io'
+    'codepen.io',
+
+    'momentjs.com',
+
+    'fonts.google.com'
 
   ];
 

@@ -5,7 +5,9 @@ import CountdownTimer from '../components/countdownTimer';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
-import TimerBar from '../components/timerBar';
+import CountdownBar from '../components/countdownBar';
+import CountdownBarAltActivity from '../components/countdownBarAltActivity';
+
 
 const URL = window.location.hostname;
 const multiplier = 5;
@@ -18,21 +20,25 @@ const style2 = {
   textAlign: 'left',
 };
 
+const MULTIPLIER = 5;
+
 const DEFAULT_ALTERNATIVE_ACTIVITIES = [
 
-  { name: "practice singing", lenMin: 5, tags: [''] },
+  { name: "practice singing", lenSec: 300, tags: [''] },
 
-  { name: "wash the dishes", lenMin: 5, tags: ['chore'] },
-  { name: "take the trash out", lenMin: 3, tags: ['chore'] },
+  { name: "wash the dishes", lenSec: 300, tags: ['chore'] },
+  { name: "take the trash out", lenSec: 180, tags: ['chore'] },
 
-  { name: "walk around the block", lenMin: 5, tags: ['exercise'] },
+  { name: "walk around the block", lenSec: 300, tags: ['exercise'] },
 
-  { name: "standing pike", lenMin: 1, tags: ['stretch'] },
+  { name: "standing pike", lenSec: 60, tags: ['stretch'] },
 
-  { name: "meditate", lenMin: 5, tags: ['mental health'] },
+  { name: "meditate", lenSec: 300, tags: ['mental health'] },
 
-  { name: "call your mom", lenMin: 5, tags: ['family'] }
+  { name: "call your mom", lenSec: 300, tags: ['family'] }
 ];
+
+
 
 export default class Blocker extends React.Component {
   constructor(props) {
@@ -44,8 +50,7 @@ export default class Blocker extends React.Component {
     // this.handleCountdownEnded = this.handleCountdownEnded.bind(this);
     this.state = {
       timer: this.props.seconds,
-      hasCountdownEnded: false,
-      alternativeActivityIndex: Math.floor(Math.random() * DEFAULT_ALTERNATIVE_ACTIVITIES.length)
+      hasCountdownEnded: false
     }
 
 
@@ -120,7 +125,7 @@ export default class Blocker extends React.Component {
         <table style={style2}>
           <tbody>
 
-          <tr>
+            <tr>
               <td>
                 <h2>DO THIS</h2>
               </td>
@@ -130,10 +135,10 @@ export default class Blocker extends React.Component {
 
             <tr>
               <td>
-                <h2>&#8212;&gt; {DEFAULT_ALTERNATIVE_ACTIVITIES[this.state.alternativeActivityIndex].name}</h2>
+                <h2>&#8212;&gt; {DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].name}</h2>
               </td>
               <td>
-                {DEFAULT_ALTERNATIVE_ACTIVITIES[this.state.alternativeActivityIndex].lenMin}
+                <CountdownBarAltActivity duration={DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec} />
               </td>
             </tr>
 
@@ -146,9 +151,13 @@ export default class Blocker extends React.Component {
             </tr>
             <tr>
               <td>
-                <h2>&#8212;&gt; {this.props.currentHostname} <TimerBar totalWaitTime={50} /></h2>
+                <h2>
+                  &#8212;&gt; {this.props.currentHostname}
+                </h2>
               </td>
               <td>
+                <CountdownBar timeRemaining={this.props.seconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} />
+
               </td>
             </tr>
 

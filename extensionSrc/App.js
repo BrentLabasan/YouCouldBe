@@ -29,19 +29,19 @@ var audioTimerEnded = new Audio();
 
 const DEFAULT_ALTERNATIVE_ACTIVITIES = [
 
-    { name: "practice singing", lenMin: 5, tags: [''] },
+    { name: "practice singing", lenSec: 300, tags: [''] },
 
-    { name: "wash the dishes", lenMin: 5, tags: ['chore'] },
-    { name: "take the trash out", lenMin: 3, tags: ['chore'] },
+    { name: "wash the dishes", lenSec: 300, tags: ['chore'] },
+    { name: "take the trash out", lenSec: 180, tags: ['chore'] },
 
-    { name: "walk around the block", lenMin: 5, tags: ['exercise'] },
+    { name: "walk around the block", lenSec: 300, tags: ['exercise'] },
 
-    { name: "standing pike", lenMin: 1, tags: ['stretch'] },
+    { name: "standing pike", lenSec: 60, tags: ['stretch'] },
 
-    { name: "meditate", lenMin: 5, tags: ['mental health'] },
+    { name: "meditate", lenSec: 300, tags: ['mental health'] },
 
-    { name: "call your mom", lenMin: 5, tags: ['family'] }
-  ];
+    { name: "call your mom", lenSec: 300, tags: ['family'] }
+];
 
 class App extends Component {
   constructor() {
@@ -173,13 +173,13 @@ class App extends Component {
 
         {this.state.isYcbContainerVisible && (<div id="ycb-container" className="App">
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
-          {this.state.view === 'blocker' && <Blocker isTimerRunning={this.state.seconds > 0} seconds={this.state.seconds} db={this.state.db} currentHostname={hostname} handleCountdownEnded={this.setYcbContainerVisible} />}
+          {this.state.view === 'blocker' && <Blocker alternativeActivityIndex={this.state.alternativeActivityIndex} isTimerRunning={this.state.seconds > 0} seconds={this.state.seconds} db={this.state.db} currentHostname={hostname} handleCountdownEnded={this.setYcbContainerVisible} />}
           {this.state.view === 'meta' && <Meta db={this.state.db} currentHostname={hostname} viewMetaSlideIndex={this.state.viewMetaSlideIndex} />}
 
           {/* <Timer /> */}
           {/* <RaisedButton label="Default" /> */}
 
-          {this.state.seconds} NEW SECONDS
+          {/* {this.state.seconds} NEW SECONDS */}
 
           <Footer view={this.state.view} activateMetaView={this.activateMetaView} activateBlockerView={this.activateBlockerView} />
         </div>)}
