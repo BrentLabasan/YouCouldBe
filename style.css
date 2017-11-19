@@ -169,8 +169,8 @@ table {
 
 #ycb-container footer {
     text-align: center;
-    display: inline-block;
-    /* position: absolute; */
+    display: block;
+    position: absolute;
     bottom: 0;
 }
 
