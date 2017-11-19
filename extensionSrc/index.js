@@ -92,6 +92,7 @@ const DEFAULT_WHITELIST = [
     'www.wrike.com',
 
     'todoist.com',
+    'support.todoist.com',
 
     'facilethings.com',
     'app.facilethings.com',
@@ -142,7 +143,9 @@ const DEFAULT_WHITELIST = [
 
     'momentjs.com',
 
-    'fonts.google.com'
+    'fonts.google.com',
+
+    'www.redfin.com'
 
   ];
 

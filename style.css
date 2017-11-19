@@ -68,6 +68,7 @@ table {
     top: 0;
     left: 0;
     /* padding: 20px; */
+    flex-direction: column;
 }
 
 #ycb-blocker {
@@ -219,3 +220,4 @@ table {
 
 #blockerTable {
   margin: 0 auto;
+}
