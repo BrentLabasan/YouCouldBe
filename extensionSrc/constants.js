@@ -1,32 +1,16 @@
+export const DEFAULT_ALTERNATIVE_ACTIVITIES = [
+  { name: "practice singing", lenSec: 300, tags: [''] },
 
+  { name: "wash the dishes", lenSec: 300, tags: ['chore'] },
+  { name: "take the trash out", lenSec: 180, tags: ['chore'] },
 
-export default function () {
-    const DEFAULT_WHITELIST = [
-        'developer.chrome.com',
-        'www.google.com',
-        'gmail.com',
-        'www.gamefaqs.com',
-        'news.ycombinator.com',
-        'github.com',
-        'stackoverflow.com',
-        'api.jquery.com',
-        'www.material-ui.com',
-        'www.w3schools.com',
-        'developer.mozilla.org',
-        'www.namecheap.com'
-    ];
-    
-    const DEFAULT_BLACKLIST = [
-        'facebook.com',
-        'instagram.com',
-        'www.coinbase.com'
-    ];
-    
-    const BETTER_THINGS_TO_DO = [
-        'going on a hike',
-        'learning how to program',
-        'doing yoga'
-    ];
-    
-    const COUNT_IGNORE = 3;
-}
+  { name: "walk around the block", lenSec: 300, tags: ['exercise'] },
+
+  { name: "standing pike", lenSec: 60, tags: ['stretch'] },
+
+  { name: "meditate", lenSec: 300, tags: ['mental health'] },
+
+  { name: "call your mom", lenSec: 300, tags: ['family'] }
+];
+
+// {name: "", lenMin: , tags: ['']},

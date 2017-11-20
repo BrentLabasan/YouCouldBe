@@ -8,6 +8,7 @@ import IconButton from 'material-ui/IconButton';
 import CountdownBar from '../components/countdownBar';
 import CountdownBarAltActivity from '../components/countdownBarAltActivity';
 
+import * as constants from '../constants';
 
 const URL = window.location.hostname;
 const multiplier = 5;
@@ -21,22 +22,6 @@ const style2 = {
 };
 
 const MULTIPLIER = 5;
-
-const DEFAULT_ALTERNATIVE_ACTIVITIES = [
-
-  { name: "practice singing", lenSec: 300, tags: [''] },
-
-  { name: "wash the dishes", lenSec: 300, tags: ['chore'] },
-  { name: "take the trash out", lenSec: 180, tags: ['chore'] },
-
-  { name: "walk around the block", lenSec: 300, tags: ['exercise'] },
-
-  { name: "standing pike", lenSec: 60, tags: ['stretch'] },
-
-  { name: "meditate", lenSec: 300, tags: ['mental health'] },
-
-  { name: "call your mom", lenSec: 300, tags: ['family'] }
-];
 
 let vcenter = {
   display: 'flex',
@@ -55,14 +40,14 @@ export default class Blocker extends React.Component {
     this.state = {
       timer: this.props.seconds,
       hasCountdownEnded: false,
-      altActivitySeconds: DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec
+      altActivitySeconds: constants.DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec
     }
 
 
   }
 
   genRndmAltActivityIndex() {
-    return Math.floor(Math.random() * DEFAULT_ALTERNATIVE_ACTIVITIES.length);
+    return Math.floor(Math.random() * constants.DEFAULT_ALTERNATIVE_ACTIVITIES.length);
   }
 
   // https://stackoverflow.com/a/31615643/708355
@@ -152,11 +137,11 @@ export default class Blocker extends React.Component {
 
             <tr>
               <td>
-                <h2>&#8212;&gt; {DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].name}</h2>
+                <h2>&#8212;&gt; {constants.DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].name}</h2>
               </td>
               <td>
-              {/* <CountdownBarAltActivity duration={DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec} /> */}
-              { DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec < MULTIPLIER * localStorage.getItem('ycbCount') && <CountdownBar timeRemaining={this.state.altActivitySeconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} /> }
+              {/* <CountdownBarAltActivity duration={constants.DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec} /> */}
+              { constants.DEFAULT_ALTERNATIVE_ACTIVITIES[this.props.alternativeActivityIndex].lenSec < MULTIPLIER * localStorage.getItem('ycbCount') && <CountdownBar timeRemaining={this.state.altActivitySeconds} countdownAmountSecs={MULTIPLIER * localStorage.getItem('ycbCount')} /> }
               </td>
             </tr>
 
