@@ -180,19 +180,30 @@ jQuery(document).ready(function () {
     }
 
   }
-  if (blockedUrl) {
+  if (blockedUrl) { // begin process to start blocking
     let audioTimerStarted = new Audio();
     audioTimerStarted.src = chrome.runtime.getURL('/extensionSrc/audio/bluedistortion/alert-01.wav');
     audioTimerStarted.play();
 
-    // if dateLastVisited isn't a date, set it to today's date
-    if (!localStorage.getItem('dateLastVisited')) {
-      localStorage.setItem('dateLastVisited', moment().format('YYYY-MM-DD'));
+    // chrome.storage.sync.clear();
+
+    let s = new Date().toString();
+    chrome.storage.sync.set({[window.location.hostname + " " + s]: {[s]: window.location.pathname}  });
+
+    chrome.storage.sync.get(null, function (obj) {
+      console.log("BRENT");
+      console.log(obj);
+    });
+
+    debugger;
+    // if PL8r-dateLastVisited isn't a date, set it to today's date
+    if (!localStorage.getItem('PL8r-dateLastVisited')) {
+      localStorage.setItem('PL8r-dateLastVisited', moment().format('YYYY-MM-DD'));
     }
-    // if today's date is greater than dateLastVisited, reset ycbCount to 0, and update dateLastVisited to today's date
-    if (moment().format('YYYY-MM-DD') > localStorage.getItem('dateLastVisited')) {
+    // if today's date is greater than PL8r-dateLastVisited, reset ycbCount to 0, and update PL8r-dateLastVisited to today's date
+    if (moment().format('YYYY-MM-DD') > localStorage.getItem('PL8r-dateLastVisited')) {
       localStorage.setItem('ycbCount', 0);
-      localStorage.setItem('dateLastVisited', moment().format('YYYY-MM-DD'));
+      localStorage.setItem('PL8r-dateLastVisited', moment().format('YYYY-MM-DD'));
     }
 
 
@@ -258,7 +269,7 @@ jQuery(document).ready(function () {
         */
 
       }
-      alert(string);
+      // alert(string);
 
     }
 
