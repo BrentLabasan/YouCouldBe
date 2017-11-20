@@ -104,6 +104,10 @@ class App extends Component {
   }
 
   tick() {
+    debugger;
+    document.getElementById('ycb-target').style.width = window.innerWidth + "px";
+    document.getElementById('ycb-target').style.height = window.innerHeight + "px";
+
     // console.log("tick() App.js");
 
     // chrome.storage.sync.get(hostname, (db) => {

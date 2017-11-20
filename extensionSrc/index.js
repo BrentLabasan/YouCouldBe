@@ -286,6 +286,8 @@ jQuery(document).ready(function () {
 
     var div = document.createElement("div");
     div.id = "ycb-target";
+    div.style.width = window.innerWidth + "px";
+    div.style.height = window.innerHeight + "px";
     document.body.appendChild(div);
 
     ReactDOM.render(<App />, document.getElementById("ycb-target"));
