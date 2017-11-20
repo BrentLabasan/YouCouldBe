@@ -19,7 +19,7 @@ export const DEFAULT_ALTERNATIVE_ACTIVITIES = [
   { name: "WEEKDAYS 3", lenSec: 300, tags: ['mental health'], frequency: 2 },
 
 
-  { name: "call your mom ON THE WEEKEND", lenSec: 300, tags: ['family'], frequency: 3 }
+  { name: "call your mom ON THE WEEKEND", lenSec: 300, tags: ['family'], frequency: 3 },
   { name: "WEEKENDS 1", lenSec: 300, tags: ['mental health'], frequency: 3 },
   { name: "WEEKENDS 2", lenSec: 300, tags: ['mental health'], frequency: 3 },
   { name: "WEEKENDS 3", lenSec: 300, tags: ['mental health'], frequency: 3 },
