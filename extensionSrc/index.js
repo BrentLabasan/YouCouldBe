@@ -180,6 +180,9 @@ jQuery( document ).ready(function() {
 
     }
     if (blockedUrl) {
+      let audioTimerStarted = new Audio();
+      audioTimerStarted.src = chrome.runtime.getURL('/extensionSrc/audio/bluedistortion/alert-01.wav');
+      audioTimerStarted.play();
 
       var div = document.createElement("div");
       div.id = "ycb-target";
