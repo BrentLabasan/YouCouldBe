@@ -14,192 +14,281 @@ import numeral from 'numeral';
 
 const DEFAULT_WHITELIST = [
 
-    // social
-    'www.facebook.com/events/',
+  // social
+  'www.facebook.com/events/',
 
-    // work
-    'www.google.com',
-    'gmail.com',
-    'mail.google.com',
-    'docs.google.com',
-    'calendar.google.com',
-    'www.calendar.google.com',
+  // work
+  'www.google.com',
+  'gmail.com',
+  'mail.google.com',
+  'docs.google.com',
+  'calendar.google.com',
+  'www.calendar.google.com',
 
-    // research
-    'www.wikipedia.org',
-    'en.wikipedia.org',
+  // research
+  'www.wikipedia.org',
+  'en.wikipedia.org',
 
-    // chat
-    'www.messenger.com',
+  // chat
+  'www.messenger.com',
 
-    // career
-    'www.linkedin.com',
-    'www.cybercoders.com',
-    'indeed.com',
-    'jobs.stackoverflow.com',
+  // career
+  'www.linkedin.com',
+  'www.cybercoders.com',
+  'indeed.com',
+  'jobs.stackoverflow.com',
 
-    // dating
-    'www.okcupid.com',
-
-
-    'developer.chrome.com',
-    'play.google.com',
-    'images.google.com',
-    'www.gamefaqs.com',
-    'news.ycombinator.com',
-    'github.com',
-    'stackoverflow.com',
-    'api.jquery.com',
-    'www.material-ui.com',
-    'www.w3schools.com',
-    'developer.mozilla.org',
-    'www.namecheap.com',
-    'reactjs.org',
-    'reactcheatsheet.com',
-    'genius.com',
-    'clients.mindbodyonline.com',
-    'www.dropbox.com',
+  // dating
+  'www.okcupid.com',
 
 
-    'www.pluralsight.com',
-    'app.pluralsight.com',
-    'outlook.live.com',
+  'developer.chrome.com',
+  'play.google.com',
+  'images.google.com',
+  'www.gamefaqs.com',
+  'news.ycombinator.com',
+  'github.com',
+  'stackoverflow.com',
+  'api.jquery.com',
+  'www.material-ui.com',
+  'www.w3schools.com',
+  'developer.mozilla.org',
+  'www.namecheap.com',
+  'reactjs.org',
+  'reactcheatsheet.com',
+  'genius.com',
+  'clients.mindbodyonline.com',
+  'www.dropbox.com',
 
-    'www.hiphopdx.com',
-    'www.complex.com',
-    'www.xxlmag.com',
 
-    'www.typescriptlang.org',
+  'www.pluralsight.com',
+  'app.pluralsight.com',
+  'outlook.live.com',
 
-    'www.amazon.com',
-    'smile.amazon.com',
-    'www.newegg.com',
+  'www.hiphopdx.com',
+  'www.complex.com',
+  'www.xxlmag.com',
 
-    'nirvanahq.com',
-    'www.nirvanahq.com',
-    'focus.nirvanahq.com',
-    'help.nirvanahq.com',
+  'www.typescriptlang.org',
 
-    'trello.com',
+  'www.amazon.com',
+  'smile.amazon.com',
+  'www.newegg.com',
 
-    'www.barnesandnoble.com',
+  'nirvanahq.com',
+  'www.nirvanahq.com',
+  'focus.nirvanahq.com',
+  'help.nirvanahq.com',
 
-    'www.spl.org',
+  'trello.com',
 
-    'www.hoodfamousbakeshop.com',
+  'www.barnesandnoble.com',
 
-    'www.apress.com',
-    'checkout.apress.com',
+  'www.spl.org',
 
-    'twitter.com',
-    'motherless.com',
+  'www.hoodfamousbakeshop.com',
 
-    'www.coinbase.com',
-    'www.gdax.com',
-    'support.gdax.com',
+  'www.apress.com',
+  'checkout.apress.com',
 
-    'www.zendone.com',
-    'app.zendone.com',
+  'twitter.com',
+  'motherless.com',
 
-    'accounts.google.com',
+  'www.coinbase.com',
+  'www.gdax.com',
+  'support.gdax.com',
 
-    'www.wrike.com',
+  'www.zendone.com',
+  'app.zendone.com',
 
-    'todoist.com',
-    'support.todoist.com',
+  'accounts.google.com',
 
-    'facilethings.com',
-    'app.facilethings.com',
+  'www.wrike.com',
 
-    'seattle.craigslist.org',
+  'todoist.com',
+  'support.todoist.com',
 
-    'www.stubhub.com',
+  'facilethings.com',
+  'app.facilethings.com',
 
-    'www.blockchain-basics.com',
-    'www.glassdoor.com',
+  'seattle.craigslist.org',
 
-    'www.dailymotion.com',
+  'www.stubhub.com',
 
-    'watch-series.co',
+  'www.blockchain-basics.com',
+  'www.glassdoor.com',
 
-    'onlineclock.net',
-    'www.online-stopwatch.com',
-    'www.onlinemeditationtimer.com',
+  'www.dailymotion.com',
 
-    'barnesandnoble.com',
-    'stores.barnesandnoble.com',
+  'watch-series.co',
 
-    'uptoken.org',
+  'onlineclock.net',
+  'www.online-stopwatch.com',
+  'www.onlinemeditationtimer.com',
 
-    'www.meetup.com',
+  'barnesandnoble.com',
+  'stores.barnesandnoble.com',
 
-    'www.4chan.org',
-    'boards.4chan.org',
+  'uptoken.org',
 
-    'jsfiddle.net',
+  'www.meetup.com',
 
-    'thepiratebay.org',
+  'www.4chan.org',
+  'boards.4chan.org',
 
-    'www.ebay.com',
+  'jsfiddle.net',
 
-    'nekoseattle.com',
+  'thepiratebay.org',
 
-    'sleepyti.me/',
+  'www.ebay.com',
 
-    'www.doordash.com',
+  'nekoseattle.com',
 
-    'www.teksystems.com',
-    'timeandexpense.teksystems.com',
+  'sleepyti.me/',
 
-    'codepen.io',
+  'www.doordash.com',
 
-    'momentjs.com',
+  'www.teksystems.com',
+  'timeandexpense.teksystems.com',
 
-    'fonts.google.com',
+  'codepen.io',
 
-    'www.redfin.com',
+  'momentjs.com',
 
-    'www.reddit.com/r/javascript/'
+  'fonts.google.com',
 
-  ];
+  'www.redfin.com',
 
-const DEFAULT_BLACKLIST = [
-  {url: 'www.facebook.com', weight: 5},
-  {url: 'www.reddit.com', weight: 5},
-  {url: 'www.instagram.com', weight: 5},
-  {url: 'www.youtube.com.com', weight: 3},
-  {url: 'www.dailymotion.com', weight: 3}
+  'www.reddit.com/r/javascript/'
+
 ];
 
-jQuery( document ).ready(function() {
-    let blockedUrl = true;
-    for (let i = 0; i < DEFAULT_WHITELIST.length; i++) {
-      // console.log(window.location.hostname + window.location.pathname, DEFAULT_WHITELIST[i]);
-      if ( (window.location.hostname + window.location.pathname).includes(DEFAULT_WHITELIST[i]) ) {
-        blockedUrl = false;
+const DEFAULT_BLACKLIST = [
+  { url: 'www.facebook.com', weight: 5 },
+  { url: 'www.reddit.com', weight: 5 },
+  { url: 'www.instagram.com', weight: 5 },
+  { url: 'www.youtube.com.com', weight: 3 },
+  { url: 'www.dailymotion.com', weight: 3 }
+];
+
+jQuery(document).ready(function () {
+  let blockedUrl = true;
+  for (let i = 0; i < DEFAULT_WHITELIST.length; i++) {
+    // console.log(window.location.hostname + window.location.pathname, DEFAULT_WHITELIST[i]);
+    if ((window.location.hostname + window.location.pathname).includes(DEFAULT_WHITELIST[i])) {
+      blockedUrl = false;
+    }
+
+  }
+  if (blockedUrl) { // begin process to start blocking
+    let audioTimerStarted = new Audio();
+    audioTimerStarted.src = chrome.runtime.getURL('/extensionSrc/audio/bluedistortion/alert-01.wav');
+    audioTimerStarted.play();
+
+    // chrome.storage.sync.clear();
+
+    let s = new Date().toString();
+    chrome.storage.sync.set({[window.location.hostname + " " + s]: {[s]: window.location.pathname}  });
+
+    chrome.storage.sync.get(null, function (obj) {
+      console.log("BRENT");
+      console.log(obj);
+    });
+
+    debugger;
+    // if PL8r-dateLastVisited isn't a date, set it to today's date
+    if (!localStorage.getItem('PL8r-dateLastVisited')) {
+      localStorage.setItem('PL8r-dateLastVisited', moment().format('YYYY-MM-DD'));
+    }
+    // if today's date is greater than PL8r-dateLastVisited, reset ycbCount to 0, and update PL8r-dateLastVisited to today's date
+    if (moment().format('YYYY-MM-DD') > localStorage.getItem('PL8r-dateLastVisited')) {
+      localStorage.setItem('ycbCount', 0);
+      localStorage.setItem('PL8r-dateLastVisited', moment().format('YYYY-MM-DD'));
+    }
+
+
+
+
+
+
+
+
+
+    //Test for browser compatibility
+    if (window.openDatabase) {
+      //Create the database the parameters are 1. the database name 2.version number 3. a description 4. the size of the database (in bytes) 1024 x 1024 = 1MB
+      var mydb = openDatabase("PL8r_db", "0.1", "Procrastinate Later DB", 1024 * 1024);
+
+      //create the altActivities table using SQL for the database using a transaction
+      mydb.transaction(function (t) {
+        t.executeSql("CREATE TABLE IF NOT EXISTS altActivities (id INTEGER PRIMARY KEY ASC, name TEXT, lenSec INTEGER, frequency INTEGER)");
+
+        // add fake data to table
+        // t.executeSql("INSERT INTO altActivities (name, lenSec, frequency) VALUES (?, ?, ?)", ['a', 1, 2]);
+      });
+    } else {
+      alert("WebSQL is not supported by your browser!");
+    }
+
+
+    ///*
+
+    //check to ensure the mydb object has been created
+    if (mydb) {
+      //Get all the alternate activities from the database with a select statement, set outputCarList as the callback function for the executeSql command
+      mydb.transaction(function (t) {
+        t.executeSql("SELECT * FROM altActivities", [], displayAltActivityList);
+      });
+    } else {
+      alert("DB not found, your browser does not support web sql!");
+    }
+
+    function displayAltActivityList(transaction, results) {
+
+
+      /*
+      //initialise the listitems variable
+      var listitems = "";
+      //get the car list holder ul
+      var listholder = document.getElementById("carlist");
+
+      //clear cars list ul
+      listholder.innerHTML = "";
+      */
+
+      //Iterate through the results
+      let string = "";
+      for (let i = 0; i < results.rows.length; i++) {
+        let row = results.rows.item(i);
+        string += row.name + " " + row.lenSec;
+        /*
+        //Get the current row
+        var row = results.rows.item(i);
+
+        listholder.innerHTML += "<li>" + row.make + " - " + row.model + " (<a href='javascript:void(0);' onclick='deleteCar(" + row.id + ");'>Delete Car</a>)";
+        */
+
       }
+      // alert(string);
 
     }
-    if (blockedUrl) {
-      let audioTimerStarted = new Audio();
-      audioTimerStarted.src = chrome.runtime.getURL('/extensionSrc/audio/bluedistortion/alert-01.wav');
-      audioTimerStarted.play();
 
-      // if dateLastVisited isn't a date, set it to today's date
-      if (!localStorage.getItem('dateLastVisited')) {
-        localStorage.setItem('dateLastVisited', moment().format('YYYY-MM-DD'));
-      }
-      // if today's date is greater than dateLastVisited, reset ycbCount to 0, and update dateLastVisited to today's date
-      if ( moment().format('YYYY-MM-DD') > localStorage.getItem('dateLastVisited') ) {
-        localStorage.setItem('ycbCount', 0);
-        localStorage.setItem('dateLastVisited', moment().format('YYYY-MM-DD'));
-      }
+    //*/
 
-      var div = document.createElement("div");
-      div.id = "ycb-target";
-      document.body.appendChild(div);
 
-      ReactDOM.render(<App />, document.getElementById("ycb-target"));
 
-    }
+
+
+
+
+
+
+
+    var div = document.createElement("div");
+    div.id = "ycb-target";
+    document.body.appendChild(div);
+
+    ReactDOM.render(<App />, document.getElementById("ycb-target"));
+
+  }
 });
