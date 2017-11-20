@@ -60,6 +60,8 @@ class App extends Component {
       alternativeActivityIndex: Math.floor(Math.random() * constants.DEFAULT_ALTERNATIVE_ACTIVITIES.length)
 
     };
+
+    document.getElementsByTagName("BODY")[0].style.overflow = "hidden";
   }
 
   componentDidMount() {
@@ -148,6 +150,7 @@ class App extends Component {
   setYcbContainerVisible() {
     this.setState({ isYcbContainerVisible: false });
     jQuery("#ycb-target").hide();
+    document.getElementsByTagName("BODY")[0].style.overflow = "";
   }
 
   render() {
