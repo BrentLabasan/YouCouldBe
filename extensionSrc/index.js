@@ -4,6 +4,7 @@ import constants from './constants';
 import viewBlocker from './view-blocker';
 import viewOptions from './view-options';
 import jQuery from 'jQuery';
+import moment from 'moment';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -183,6 +184,16 @@ jQuery( document ).ready(function() {
       let audioTimerStarted = new Audio();
       audioTimerStarted.src = chrome.runtime.getURL('/extensionSrc/audio/bluedistortion/alert-01.wav');
       audioTimerStarted.play();
+
+      // if dateLastVisited isn't a date, set it to today's date
+      if (!localStorage.getItem('dateLastVisited')) {
+        localStorage.setItem('dateLastVisited', moment().format('YYYY-MM-DD'));
+      }
+      // if today's date is greater than dateLastVisited, reset ycbCount to 0, and update dateLastVisited to today's date
+      if ( moment().format('YYYY-MM-DD') > localStorage.getItem('dateLastVisited') ) {
+        localStorage.setItem('ycbCount', 0);
+        localStorage.setItem('dateLastVisited', moment().format('YYYY-MM-DD'));
+      }
 
       var div = document.createElement("div");
       div.id = "ycb-target";

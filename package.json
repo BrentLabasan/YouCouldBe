@@ -18,6 +18,7 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "moment": "^2.19.2",
     "react": "^16.0.0",
     "react-dev-utils": "^4.1.0",
     "react-dom": "^16.0.0",
