@@ -195,6 +195,14 @@ jQuery(document).ready(function () {
       localStorage.setItem('dateLastVisited', moment().format('YYYY-MM-DD'));
     }
 
+
+
+
+
+
+
+
+
     //Test for browser compatibility
     if (window.openDatabase) {
       //Create the database the parameters are 1. the database name 2.version number 3. a description 4. the size of the database (in bytes) 1024 x 1024 = 1MB
@@ -203,10 +211,57 @@ jQuery(document).ready(function () {
       //create the altActivities table using SQL for the database using a transaction
       mydb.transaction(function (t) {
         t.executeSql("CREATE TABLE IF NOT EXISTS altActivities (id INTEGER PRIMARY KEY ASC, name TEXT, lenSec INTEGER, frequency INTEGER)");
+
+        // add fake data to table
+        t.executeSql("INSERT INTO altActivities (name, lenSec, frequency) VALUES (?, ?, ?)", ['a', 1, 2]);
       });
     } else {
       alert("WebSQL is not supported by your browser!");
     }
+
+
+    /*
+
+    //check to ensure the mydb object has been created
+    if (mydb) {
+      //Get all the alternate activities from the database with a select statement, set outputCarList as the callback function for the executeSql command
+      mydb.transaction(function (t) {
+        t.executeSql("SELECT * FROM altActivities", [], displayAltActivityList);
+      });
+    } else {
+      alert("DB not found, your browser does not support web sql!");
+    }
+
+    function altActivities(transaction, results) {
+      //initialise the listitems variable
+      var listitems = "";
+      //get the car list holder ul
+      var listholder = document.getElementById("carlist");
+
+      //clear cars list ul
+      listholder.innerHTML = "";
+
+      var i;
+      //Iterate through the results
+      for (i = 0; i < results.rows.length; i++) {
+        //Get the current row
+        var row = results.rows.item(i);
+
+        listholder.innerHTML += "<li>" + row.make + " - " + row.model + " (<a href='javascript:void(0);' onclick='deleteCar(" + row.id + ");'>Delete Car</a>)";
+      }
+
+    }
+
+    */
+
+
+
+
+
+
+
+
+
 
     var div = document.createElement("div");
     div.id = "ycb-target";
