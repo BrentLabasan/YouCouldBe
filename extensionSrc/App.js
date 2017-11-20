@@ -17,6 +17,8 @@ const style = {
   margin: 12,
 };
 
+import * as constants from './constants';
+
 const hostname = window.location.hostname;
 const MULTIPLIER = 5;
 
@@ -26,22 +28,6 @@ let date = "" + d.getFullYear() + d.getMonth() + d.getDate();
 var audio = new Audio();
 var audioTimerStarted = new Audio();
 var audioTimerEnded = new Audio();
-
-const DEFAULT_ALTERNATIVE_ACTIVITIES = [
-
-    { name: "practice singing", lenSec: 300, tags: [''] },
-
-    { name: "wash the dishes", lenSec: 300, tags: ['chore'] },
-    { name: "take the trash out", lenSec: 180, tags: ['chore'] },
-
-    { name: "walk around the block", lenSec: 300, tags: ['exercise'] },
-
-    { name: "standing pike", lenSec: 60, tags: ['stretch'] },
-
-    { name: "meditate", lenSec: 300, tags: ['mental health'] },
-
-    { name: "call your mom", lenSec: 300, tags: ['family'] }
-];
 
 class App extends Component {
   constructor() {
@@ -71,7 +57,7 @@ class App extends Component {
 
       timer: 1 * MULTIPLIER,
       hasCountdownEnded: false,
-      alternativeActivityIndex: Math.floor(Math.random() * DEFAULT_ALTERNATIVE_ACTIVITIES.length)
+      alternativeActivityIndex: Math.floor(Math.random() * constants.DEFAULT_ALTERNATIVE_ACTIVITIES.length)
 
     };
   }

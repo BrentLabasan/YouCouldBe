@@ -4,6 +4,7 @@ import constants from './constants';
 import viewBlocker from './view-blocker';
 import viewOptions from './view-options';
 import jQuery from 'jQuery';
+import moment from 'moment';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -13,15 +14,35 @@ import numeral from 'numeral';
 
 const DEFAULT_WHITELIST = [
 
+    // social
     'www.facebook.com/events/',
 
-    'developer.chrome.com',
+    // work
     'www.google.com',
     'gmail.com',
     'mail.google.com',
     'docs.google.com',
     'calendar.google.com',
     'www.calendar.google.com',
+
+    // research
+    'www.wikipedia.org',
+    'en.wikipedia.org',
+
+    // chat
+    'www.messenger.com',
+
+    // career
+    'www.linkedin.com',
+    'www.cybercoders.com',
+    'indeed.com',
+    'jobs.stackoverflow.com',
+
+    // dating
+    'www.okcupid.com',
+
+
+    'developer.chrome.com',
     'play.google.com',
     'images.google.com',
     'www.gamefaqs.com',
@@ -36,17 +57,10 @@ const DEFAULT_WHITELIST = [
     'reactjs.org',
     'reactcheatsheet.com',
     'genius.com',
-    'chrome',
     'clients.mindbodyonline.com',
     'www.dropbox.com',
-    'www.messenger.com',
-    'www.wikipedia.org',
-    'en.wikipedia.org',
 
-    'www.linkedin.com',
-    'www.cybercoders.com',
-    'indeed.com',
-    'jobs.stackoverflow.com',
+
     'www.pluralsight.com',
     'app.pluralsight.com',
     'outlook.live.com',
@@ -130,8 +144,6 @@ const DEFAULT_WHITELIST = [
 
     'nekoseattle.com',
 
-    'www.okcupid.com',
-
     'sleepyti.me/',
 
     'www.doordash.com',
@@ -169,6 +181,19 @@ jQuery( document ).ready(function() {
 
     }
     if (blockedUrl) {
+      let audioTimerStarted = new Audio();
+      audioTimerStarted.src = chrome.runtime.getURL('/extensionSrc/audio/bluedistortion/alert-01.wav');
+      audioTimerStarted.play();
+
+      // if dateLastVisited isn't a date, set it to today's date
+      if (!localStorage.getItem('dateLastVisited')) {
+        localStorage.setItem('dateLastVisited', moment().format('YYYY-MM-DD'));
+      }
+      // if today's date is greater than dateLastVisited, reset ycbCount to 0, and update dateLastVisited to today's date
+      if ( moment().format('YYYY-MM-DD') > localStorage.getItem('dateLastVisited') ) {
+        localStorage.setItem('ycbCount', 0);
+        localStorage.setItem('dateLastVisited', moment().format('YYYY-MM-DD'));
+      }
 
       var div = document.createElement("div");
       div.id = "ycb-target";
