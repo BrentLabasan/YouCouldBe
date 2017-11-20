@@ -213,14 +213,14 @@ jQuery(document).ready(function () {
         t.executeSql("CREATE TABLE IF NOT EXISTS altActivities (id INTEGER PRIMARY KEY ASC, name TEXT, lenSec INTEGER, frequency INTEGER)");
 
         // add fake data to table
-        t.executeSql("INSERT INTO altActivities (name, lenSec, frequency) VALUES (?, ?, ?)", ['a', 1, 2]);
+        // t.executeSql("INSERT INTO altActivities (name, lenSec, frequency) VALUES (?, ?, ?)", ['a', 1, 2]);
       });
     } else {
       alert("WebSQL is not supported by your browser!");
     }
 
 
-    /*
+    ///*
 
     //check to ensure the mydb object has been created
     if (mydb) {
@@ -232,7 +232,10 @@ jQuery(document).ready(function () {
       alert("DB not found, your browser does not support web sql!");
     }
 
-    function altActivities(transaction, results) {
+    function displayAltActivityList(transaction, results) {
+
+
+      /*
       //initialise the listitems variable
       var listitems = "";
       //get the car list holder ul
@@ -240,19 +243,26 @@ jQuery(document).ready(function () {
 
       //clear cars list ul
       listholder.innerHTML = "";
+      */
 
-      var i;
       //Iterate through the results
-      for (i = 0; i < results.rows.length; i++) {
+      let string = "";
+      for (let i = 0; i < results.rows.length; i++) {
+        let row = results.rows.item(i);
+        string += row.name + " " + row.lenSec;
+        /*
         //Get the current row
         var row = results.rows.item(i);
 
         listholder.innerHTML += "<li>" + row.make + " - " + row.model + " (<a href='javascript:void(0);' onclick='deleteCar(" + row.id + ");'>Delete Car</a>)";
+        */
+
       }
+      alert(string);
 
     }
 
-    */
+    //*/
 
 
 
