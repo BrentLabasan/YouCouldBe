@@ -227,4 +227,13 @@ table {
 
 #blockerTable {
   margin: 0 auto;
+  border: 0;
+}
+
+#blockerTable tr {
+  border: 0;
+}
+
+#blockerTable td {
+  border: 0;
 }
