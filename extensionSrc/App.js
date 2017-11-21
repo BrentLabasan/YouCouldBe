@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import jQuery from 'jQuery';
+import jQuery from 'jquery';
 import Timer from './Timer';
 import Blocker from './views/blocker';
 import Meta from './views/meta';

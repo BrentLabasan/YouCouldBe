@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import jQuery from 'jQuery';
+import jQuery from 'jquery';
 
 const URL = window.location.hostname;
 const multiplier = 5;

@@ -228,12 +228,15 @@ table {
 #blockerTable {
   margin: 0 auto;
   border: 0;
+  text-align: left;
 }
 
 #blockerTable tr {
   border: 0;
+  text-align: left;
 }
 
 #blockerTable td {
   border: 0;
+  text-align: left;
 }
