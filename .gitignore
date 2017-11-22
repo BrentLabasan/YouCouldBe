@@ -62,3 +62,4 @@ node_modules/
 extension/
 
 meta.txt
+package-lock.json
