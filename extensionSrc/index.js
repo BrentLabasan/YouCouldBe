@@ -17,7 +17,8 @@ const DEFAULT_WHITELIST = [
   'venmo.com',
 
   // social
-  'www.facebook.com/events/',
+  'www.facebook.com/search',
+  'www.facebook.com/events',
 
   // work
   'www.google.com',
@@ -42,6 +43,7 @@ const DEFAULT_WHITELIST = [
 
   // dating
   'www.okcupid.com',
+  'www.pof.com',
 
 
   'developer.chrome.com',
@@ -134,6 +136,7 @@ const DEFAULT_WHITELIST = [
   'uptoken.org',
 
   'www.meetup.com',
+  'secure.meetup.com',
 
   'www.4chan.org',
   'boards.4chan.org',
@@ -170,7 +173,16 @@ const DEFAULT_WHITELIST = [
   'www.chowhound.com',
 
   'www.salliemae.com',
-  'www.barclaycardus.com'
+  'www.barclaycardus.com',
+
+  'nodejs.org',
+
+  'www.getdrip.com',
+
+  // travel
+  'www.alaskaair.com',
+
+  'secure.nordstrom.com'
 
 ];
 
