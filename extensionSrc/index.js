@@ -3,7 +3,7 @@ import helpers from './helpers';
 import constants from './constants';
 import viewBlocker from './view-blocker';
 import viewOptions from './view-options';
-import jQuery from 'jQuery';
+import jQuery from 'jquery';
 import moment from 'moment';
 
 import React from 'react';
@@ -13,6 +13,8 @@ import App from './App';
 import numeral from 'numeral';
 
 const DEFAULT_WHITELIST = [
+  // finances
+  'venmo.com',
 
   // social
   'www.facebook.com/events/',
@@ -159,7 +161,16 @@ const DEFAULT_WHITELIST = [
 
   'www.redfin.com',
 
-  'www.reddit.com/r/javascript/'
+  'www.reddit.com/r/javascript/',
+
+  'www.skilletfood.com',
+
+  'resy.com',
+
+  'www.chowhound.com',
+
+  'www.salliemae.com',
+  'www.barclaycardus.com'
 
 ];
 
@@ -286,6 +297,8 @@ jQuery(document).ready(function () {
 
     var div = document.createElement("div");
     div.id = "ycb-target";
+    div.style.width = window.innerWidth + "px";
+    div.style.height = window.innerHeight + "px";
     document.body.appendChild(div);
 
     ReactDOM.render(<App />, document.getElementById("ycb-target"));

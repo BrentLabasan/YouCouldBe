@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import jQuery from 'jQuery';
+import jQuery from 'jquery';
 import Timer from './Timer';
 import Blocker from './views/blocker';
 import Meta from './views/meta';
@@ -60,6 +60,8 @@ class App extends Component {
       alternativeActivityIndex: Math.floor(Math.random() * constants.DEFAULT_ALTERNATIVE_ACTIVITIES.length)
 
     };
+
+    document.getElementsByTagName("BODY")[0].style.overflow = "hidden";
   }
 
   componentDidMount() {
@@ -104,6 +106,10 @@ class App extends Component {
   }
 
   tick() {
+    debugger;
+    document.getElementById('ycb-target').style.width = window.innerWidth + "px";
+    document.getElementById('ycb-target').style.height = window.innerHeight + "px";
+
     // console.log("tick() App.js");
 
     // chrome.storage.sync.get(hostname, (db) => {
@@ -144,6 +150,7 @@ class App extends Component {
   setYcbContainerVisible() {
     this.setState({ isYcbContainerVisible: false });
     jQuery("#ycb-target").hide();
+    document.getElementsByTagName("BODY")[0].style.overflow = "";
   }
 
   render() {
