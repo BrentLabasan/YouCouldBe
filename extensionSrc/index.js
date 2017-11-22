@@ -170,7 +170,10 @@ const DEFAULT_WHITELIST = [
   'www.chowhound.com',
 
   'www.salliemae.com',
-  'www.barclaycardus.com'
+  'www.barclaycardus.com',
+
+  'www.ticketmaster.com',
+  'www1.ticketmaster.com'
 
 ];
 
@@ -293,7 +296,7 @@ jQuery(document).ready(function () {
 
 
 
-
+    window.scrollTo(0, 0);
 
     var div = document.createElement("div");
     div.id = "ycb-target";
