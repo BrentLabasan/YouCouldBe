@@ -182,7 +182,11 @@ const DEFAULT_WHITELIST = [
   // travel
   'www.alaskaair.com',
 
-  'secure.nordstrom.com'
+  'secure.nordstrom.com',
+  'www.ticketmaster.com',
+  'www1.ticketmaster.com',
+
+  'www.gitkraken.com'
 
 ];
 
@@ -305,7 +309,7 @@ jQuery(document).ready(function () {
 
 
 
-
+    window.scrollTo(0, 0);
 
     var div = document.createElement("div");
     div.id = "ycb-target";

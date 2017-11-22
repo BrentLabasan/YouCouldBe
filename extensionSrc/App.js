@@ -107,6 +107,7 @@ class App extends Component {
 
   tick() {
     debugger;
+    window.scrollTo(0, 0);
     document.getElementById('ycb-target').style.width = window.innerWidth + "px";
     document.getElementById('ycb-target').style.height = window.innerHeight + "px";
 
