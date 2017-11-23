@@ -12,6 +12,9 @@ export const DEFAULT_ALTERNATIVE_ACTIVITIES = [
   { name: "walk around the block", lenSec: 300, tags: ['exercise'], frequency: 1 },
   { name: "standing pike", lenSec: 60, tags: ['stretch'], frequency: 1 },
   { name: "meditate", lenSec: 300, tags: ['mental health'], frequency: 1 },
+  { name: "plan your day out", sites: ['calendar.google.com'] ,lenSec: 300, tags: ['mental health'], frequency: 1 },
+  { name: "plan your week out", lenSec: 300, tags: ['mental health'], frequency: 1 },
+
 
   { name: "pack lunch for work ON THE WEEKDAYS", lenSec: 300, tags: ['mental health'], frequency: 2 },
   { name: "WEEKDAYS 1", lenSec: 300, tags: ['mental health'], frequency: 2 },
