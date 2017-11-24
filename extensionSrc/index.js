@@ -204,7 +204,7 @@ jQuery(document).ready(function () {
   if (blockedUrl) { // begin process to start blocking
     let audioTimerStarted = new Audio();
     audioTimerStarted.src = chrome.runtime.getURL('/extensionSrc/audio/bluedistortion/alert-01.wav');
-    audioTimerStarted.play();
+    audioTimerStarted.play();~
 
     // chrome.storage.sync.clear();
 
@@ -226,82 +226,6 @@ jQuery(document).ready(function () {
       localStorage.setItem('ycbCount', 0);
       localStorage.setItem('PL8r-dateLastVisited', moment().format('YYYY-MM-DD'));
     }
-
-
-
-
-
-
-
-
-
-    //Test for browser compatibility
-    if (window.openDatabase) {
-      //Create the database the parameters are 1. the database name 2.version number 3. a description 4. the size of the database (in bytes) 1024 x 1024 = 1MB
-      var mydb = openDatabase("PL8r_db", "0.1", "Procrastinate Later DB", 1024 * 1024);
-
-      //create the altActivities table using SQL for the database using a transaction
-      mydb.transaction(function (t) {
-        t.executeSql("CREATE TABLE IF NOT EXISTS altActivities (id INTEGER PRIMARY KEY ASC, name TEXT, lenSec INTEGER, frequency INTEGER)");
-
-        // add fake data to table
-        // t.executeSql("INSERT INTO altActivities (name, lenSec, frequency) VALUES (?, ?, ?)", ['a', 1, 2]);
-      });
-    } else {
-      alert("WebSQL is not supported by your browser!");
-    }
-
-
-    ///*
-
-    //check to ensure the mydb object has been created
-    if (mydb) {
-      //Get all the alternate activities from the database with a select statement, set outputCarList as the callback function for the executeSql command
-      mydb.transaction(function (t) {
-        t.executeSql("SELECT * FROM altActivities", [], displayAltActivityList);
-      });
-    } else {
-      alert("DB not found, your browser does not support web sql!");
-    }
-
-    function displayAltActivityList(transaction, results) {
-
-
-      /*
-      //initialise the listitems variable
-      var listitems = "";
-      //get the car list holder ul
-      var listholder = document.getElementById("carlist");
-
-      //clear cars list ul
-      listholder.innerHTML = "";
-      */
-
-      //Iterate through the results
-      let string = "";
-      for (let i = 0; i < results.rows.length; i++) {
-        let row = results.rows.item(i);
-        string += row.name + " " + row.lenSec;
-        /*
-        //Get the current row
-        var row = results.rows.item(i);
-
-        listholder.innerHTML += "<li>" + row.make + " - " + row.model + " (<a href='javascript:void(0);' onclick='deleteCar(" + row.id + ");'>Delete Car</a>)";
-        */
-
-      }
-      // alert(string);
-
-    }
-
-    //*/
-
-
-
-
-
-
-
 
     window.scrollTo(0, 0);
 
