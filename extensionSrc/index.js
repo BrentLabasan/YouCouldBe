@@ -190,13 +190,7 @@ const DEFAULT_WHITELIST = [
 
 ];
 
-const DEFAULT_BLACKLIST = [
-  { url: 'www.facebook.com', weight: 5 },
-  { url: 'www.reddit.com', weight: 5 },
-  { url: 'www.instagram.com', weight: 5 },
-  { url: 'www.youtube.com.com', weight: 3 },
-  { url: 'www.dailymotion.com', weight: 3 }
-];
+
 
 jQuery(document).ready(function () {
   let blockedUrl = true;
