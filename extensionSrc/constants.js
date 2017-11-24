@@ -1,9 +1,9 @@
 // 0 one time | 1 daily | 2 weekdays only | 3 weekends only
 export const DEFAULT_ALTERNATIVE_ACTIVITIES = [
-  {name: "go grocery shopping ONE TIME", lenSec: 300, tags: [''], frequency: 0 },
-  {name: "wash your car ONE TIME", lenMin: 300, tags: [''], frequency: 0},
-  {name: "clean stove range ONE TIME", lenMin: 300, tags: [''], frequency: 0},
-  {name: "mop kitchen floor ONE TIME", lenMin: 300, tags: [''], frequency: 0},
+  { name: "go grocery shopping ONE TIME", lenSec: 300, tags: [''], frequency: 0 },
+  { name: "wash your car ONE TIME", lenMin: 300, tags: [''], frequency: 0 },
+  { name: "clean stove range ONE TIME", lenMin: 300, tags: [''], frequency: 0 },
+  { name: "mop kitchen floor ONE TIME", lenMin: 300, tags: [''], frequency: 0 },
 
 
   { name: "practice singing", lenSec: 300, tags: [''], frequency: 1 },
@@ -12,7 +12,7 @@ export const DEFAULT_ALTERNATIVE_ACTIVITIES = [
   { name: "walk around the block", lenSec: 300, tags: ['exercise'], frequency: 1 },
   { name: "standing pike", lenSec: 60, tags: ['stretch'], frequency: 1 },
   { name: "meditate", lenSec: 300, tags: ['mental health'], frequency: 1 },
-  { name: "plan your day out", sites: ['calendar.google.com'] ,lenSec: 300, tags: ['mental health'], frequency: 1 },
+  { name: "plan your day out", sites: ['calendar.google.com'], lenSec: 300, tags: ['mental health'], frequency: 1 },
   { name: "plan your week out", lenSec: 300, tags: ['mental health'], frequency: 1 },
 
 
@@ -31,11 +31,26 @@ export const DEFAULT_ALTERNATIVE_ACTIVITIES = [
 ];
 
 const DEFAULT_BLACKLIST = [
-  { url: 'www.facebook.com', weight: 5 },
-  { url: 'www.reddit.com', weight: 5 },
-  { url: 'www.instagram.com', weight: 5 },
-  { url: 'www.youtube.com.com', weight: 3 },
-  { url: 'www.dailymotion.com', weight: 3 }
-];
+  {
+    url: 'www.facebook.com',
+    weight: 5,
+    freeViews: 5
+  },
+  {
+    url: 'www.reddit.com',
+    weight: 5,
+    freeViews: 3
+  },
+  {
+    url: 'www.instagram.com',
+    weight: 5,
+    freeViews: 3
+  },
+  {
+    url: 'www.youtube.com.com',
+    weight: 3,
+    freeViews: 3
+  },
+]
 
 // {name: "", lenMin: , tags: [''], frequency: n},
