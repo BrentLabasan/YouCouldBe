@@ -30,27 +30,23 @@ export const DEFAULT_ALTERNATIVE_ACTIVITIES = [
 
 ];
 
-const DEFAULT_BLACKLIST = [
-  {
-    url: 'www.facebook.com',
+export const DEFAULT_BLACKLIST = {
+  'www.facebook.com': {
     weight: 5,
     freeViews: 5
   },
-  {
-    url: 'www.reddit.com',
+  'www.reddit.com': {
     weight: 5,
     freeViews: 3
   },
-  {
-    url: 'www.instagram.com',
+  'www.instagram.com': {
     weight: 5,
     freeViews: 3
   },
-  {
-    url: 'www.youtube.com.com',
+  'www.youtube.com.com': {
     weight: 3,
     freeViews: 3
-  },
-]
+  }
+}
 
 // {name: "", lenMin: , tags: [''], frequency: n},

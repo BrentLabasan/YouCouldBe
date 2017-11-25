@@ -186,7 +186,9 @@ const DEFAULT_WHITELIST = [
   'www.ticketmaster.com',
   'www1.ticketmaster.com',
 
-  'www.gitkraken.com'
+  'www.gitkraken.com',
+
+  'wikibooks.org'
 
 ];
 
@@ -199,12 +201,20 @@ jQuery(document).ready(function () {
     if ((window.location.hostname + window.location.pathname).includes(DEFAULT_WHITELIST[i])) {
       blockedUrl = false;
     }
-
+  
   }
+
+  // if webattends >= 3;
+  debugger;
+  if ( localStorage.getItem('ycbCount') > constants.DEFAULT_BLACKLIST[window.locationlhostname].freeViews ) {
+    blockedUrl = false;
+  }
+
+
   if (blockedUrl) { // begin process to start blocking
     let audioTimerStarted = new Audio();
     audioTimerStarted.src = chrome.runtime.getURL('/extensionSrc/audio/bluedistortion/alert-01.wav');
-    audioTimerStarted.play();~
+    audioTimerStarted.play();
 
     // chrome.storage.sync.clear();
 
