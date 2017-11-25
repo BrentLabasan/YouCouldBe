@@ -106,7 +106,6 @@ class App extends Component {
   }
 
   tick() {
-    debugger;
     if (this.state.isYcbContainerVisible) {
       window.scrollTo(0, 0);
     }

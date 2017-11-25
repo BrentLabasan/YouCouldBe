@@ -41,7 +41,7 @@ export const DEFAULT_BLACKLIST = {
   },
   'www.instagram.com': {
     weight: 5,
-    freeViews: 3
+    freeViews: 10
   },
   'www.youtube.com.com': {
     weight: 3,

@@ -1,6 +1,6 @@
 import './index.css';
 import helpers from './helpers';
-import constants from './constants';
+import * as constants from './constants';
 import viewBlocker from './view-blocker';
 import viewOptions from './view-options';
 import jQuery from 'jquery';
@@ -206,7 +206,7 @@ jQuery(document).ready(function () {
 
   // if webattends >= 3;
   debugger;
-  if ( localStorage.getItem('ycbCount') > constants.DEFAULT_BLACKLIST[window.locationlhostname].freeViews ) {
+  if ( localStorage.getItem('ycbCount') > constants.DEFAULT_BLACKLIST[window.location.hostname].freeViews ) {
     blockedUrl = false;
   }
 
