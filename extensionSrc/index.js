@@ -206,7 +206,7 @@ jQuery(document).ready(function () {
 
   // if webattends >= 3;
   debugger;
-  if ( localStorage.getItem('ycbCount') > constants.DEFAULT_BLACKLIST[window.location.hostname].freeViews ) {
+  if ( localStorage.getItem('ycbCount') < constants.DEFAULT_BLACKLIST[window.location.hostname].freeViews ) {
     blockedUrl = false;
   }
 
